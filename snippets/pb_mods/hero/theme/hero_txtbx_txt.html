@@ -1,0 +1,15 @@
+<cms:show_repeatable 'hero_txtbx_txt_rpt' limit='1' order='asc' >
+    <cms:if k_first_row >
+        <<cms:show hero_txt_hdg_sz /> class="<cms:if hero_mdl_add_opt!='0'>mb-md-5 mb-sm-2</cms:if> fw-<cms:show hero_fnt_wt /> text-<cms:show hero_txt_clr /> font-<cms:show hero_font /> fst-<cms:show hero_fnt_st /> ls-<cms:show hero_ltr_spc /> fs-<cms:show hero_txt_txt_sz />">
+            <cms:show hero_txt_ln />
+        </<cms:show hero_txt_hdg_sz />>
+        <cms:if hero_mdl_add_opt !="0" >
+            <cms:embed 'pb_mods/hero/theme/hero_modal-add.html' />
+        </cms:if>
+    </cms:if>
+</cms:show_repeatable>
+<cms:show_repeatable 'hero_txtbx_txt_rpt' offset='1' order='asc' >
+    <<cms:show hero_txt_hdg_sz /> class="fw-<cms:show hero_fnt_wt /> text-<cms:show hero_txt_clr /> font-<cms:show hero_font /> fst-<cms:show hero_fnt_st /> ls-<cms:show hero_ltr_spc /> fs-<cms:show hero_txt_txt_sz />">
+        <cms:show hero_txt_ln />
+    </<cms:show hero_txt_hdg_sz />>
+</cms:show_repeatable>

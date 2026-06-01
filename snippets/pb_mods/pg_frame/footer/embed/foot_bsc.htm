@@ -1,0 +1,98 @@
+<cms:editable type='group' name='ccs_ftr_bsc_gen_stng_grp' label='Basic Footer Settings'  order='10'>
+    <cms:editable type='message' name='ccs_ftr_bsc_gen_stng_msg' order='3'>
+        <h2>Site Footer Settings</h2>
+        <h4></h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type='row' name='ccs_ftr_bsc_gen_set_row' order='5'>
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_pad_y' label='Hight of Footer' desc=''
+            opt_values='2|0|3|4'
+            class='col-md-4 col-sm-6'
+            order='2'
+        />
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_bg_clr_opt' label='Footer Background Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='6'
+        />
+    </cms:editable>
+    <cms:editable type='row' name='ccs_ftr_bsc_txt_fmt_row' order='10'>
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_text' label='Footer Text Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='4'
+        />
+
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_fs' label='Text Size' 
+            opt_values='dropdowns/text-size_sml.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='6'  
+        />
+        <cms:editable type='message' name='ccs_ftr_bsc_br' class='col-md-12'  order='7' >
+            <br><hr>
+        </cms:editable>
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_font' label='Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            class='col-md-3 col-sm-6'
+            order='8'  
+        />
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_fwt' label='Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            class='col-md-3 col-sm-6'
+            order='10'  
+        />
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_fst' label='Font Style' 
+            opt_values='dropdowns/font-style.htm'
+            dynamic='opt_values'
+            class='col-md-3 col-sm-6'
+            order='12'  
+        />
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_ls' label='Letter Spacing' 
+            opt_values='dropdowns/hdr_ltr-spc.htm'
+            dynamic='opt_values'
+            class='col-md-3 col-sm-6'
+            order='14'  
+        />
+    </cms:editable>
+    <cms:editable type='row' name='ccs_ftr_bsc_img_row' order='10'>
+        <cms:editable type='image' name='ccs_ftr_bsc_site_logo' label='Footer Logo' desc=''
+            width='254'
+            height='40'
+            enforce_max='1'
+            show_preview='1'
+            preview_width='45'
+            class='col-md-4'
+            order='19'
+        />
+        <cms:editable type='text' name='ccs_ftr_bsc_site_logo_alt' label='Image Alt Description'  desc='for SEO and sreen readers'
+            class='col-md-12'
+            order='20' 
+        />
+    </cms:editable>
+    <cms:repeatable name='ccs_ftr_bsc_lnks_rpt' label='Footer Site Links' order='30' >
+        <cms:editable type='text' name='ccs_ftr_bsc_lnks_ttl' label='Link Text' order='2' />
+        
+        <cms:editable type='dropdown' name='ccs_ftr_bsc_lnks_lnk_opt' label='Link to...' 
+            opt_values='dropdowns/links.htm'
+            dynamic='opt_values'
+            class='col-md-4'
+            order='4'  
+        />
+        <cms:func _into='ccs_ftr_bsc_lnks_lnk_cstm_chc' ccs_ftr_bsc_lnks_lnk_opt=''>
+            <cms:if ccs_ftr_bsc_lnks_lnk_opt='custom'>
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+        <cms:editable type='text' name='ccs_ftr_bsc_lnks_cstm_lnk' label='Custom Link'  desc='enter full url' not_active=ccs_ftr_bsc_lnks_lnk_cstm_chc
+            class='col-md-4'
+            order='6' 
+        />
+    </cms:repeatable>
+</cms:editable>

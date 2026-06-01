@@ -1,0 +1,32 @@
+<cms:embed 'pb_mods/hero/theme/hero_swpr_custom_settings.html' />
+
+<section class="bg-<cms:show swpr_bg_clr /> p-0 has-parallax">
+    
+    <div class="swiper-theme-container home-slider" data-swiper-theme-container="data-swiper-theme-container">
+        
+        <div class="swiper" data-swiper='{"effect":"<cms:show hero_swpr_trns />","loop":true,"autoplay":{"delay":<cms:show hero_swpr_delay />,"disableOnInteraction":true},"pagination":{"el":".swiper-pagination","clickable":true}}'>
+            
+            <div class="swiper-wrapper">
+                
+                <cms:show_repeatable 'hero_swpr_rpt'>
+                    
+                    <div class="swiper-slide">
+                        <div class="position-relative p-0">
+                            <div class="bg-holder overlay overlay-<cms:show swpr_ovrly_clr />" style="background-image:url(<cms:show hero_swpr_img />)" data-rellax-speed="<cms:show hero_swpr_bg_scrl_spd />" data-parallax="data-parallax">
+                                <cms:if hero_swpr_img_vid_opt ><!--slide is video -->    
+                                    <cms:embed 'pb_mods/hero/theme/hero_swiper_vid.html' />
+                                </cms:if>
+                            </div>
+                            <cms:embed 'pb_mods/hero/theme/hero_swiper_container.html' />
+                        </div>
+                    </div><!-- end swiper slide -->
+                    
+                </cms:show_repeatable>
+            </div>
+        </div>
+        <div class="swiper-nav"  >
+            <div class="text-<cms:show hero_swpr_arw_clr /> swiper-button-next bg-<cms:show hero_swpr_arw_bg_clr />"></div>
+            <div class="text-<cms:show hero_swpr_arw_clr /> swiper-button-prev bg-<cms:show hero_swpr_arw_bg_clr />"></div>
+        </div>
+    </div>
+</section>

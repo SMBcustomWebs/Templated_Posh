@@ -1,0 +1,42 @@
+<cms:editable type='group' name='hero_txtblk_text_grp' label='Hero Text' not_active=hero_txtblk_txt_chc order='302'>
+    <cms:repeatable name='hero_txtbx_txt_rpt' label='Hero Text Lines - New Row = New Line' stacked_layout='1' order='305' >
+        <cms:editable type='text' name='hero_txt_ln' label='Text'
+            order='307' 
+        />
+        <cms:editable type='dropdown' name='hero_txt_clr' label='Text Color' 
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            order='310'  
+        />
+        <cms:editable type='dropdown' name='hero_txt_hdg_sz' label='Main Text Size' 
+            opt_values='dropdowns/heading-size.htm'
+            dynamic='opt_values'
+            order='312'  
+        />
+        <cms:editable type='dropdown' name='hero_txt_txt_sz' label='Text Size (for more control over size)' 
+            opt_values='dropdowns/text-size.htm'
+            dynamic='opt_values'
+            order='314'  
+        />
+        <cms:editable type='dropdown' name='hero_fnt_wt' label='Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            order='316'  
+        />
+        <cms:editable type='dropdown' name='hero_ltr_spc' label='Letter Spacing' 
+            opt_values='dropdowns/hdr_ltr-spc.htm'
+            dynamic='opt_values'
+            order='318'  
+        />
+        <cms:editable type='dropdown' name='hero_fnt_st' label='Font Style' 
+            opt_values='dropdowns/font-style.htm'
+            dynamic='opt_values'
+            order='320'  
+        />
+        <cms:editable type='dropdown' name='hero_font' label='Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            order='322'  
+        />
+    </cms:repeatable>
+</cms:editable>

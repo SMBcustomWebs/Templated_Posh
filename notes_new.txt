@@ -1,0 +1,382 @@
+menu items use template names with orders between 100 - 999.  The template names become top-level menu titles. This hard-codes the top-level menu
+Then, each template has a dynamic folders and template globals . DF becomes the basis of the submenu list page framework, TG serves dual purpose - becoming PB for menu item homepage framework and content page framework for its respective menu item.
+
+Mod examples are kept under posh-ecomm and using Filezilla is under CustomCMSsystems, located at /customcmssystems.com/module-display
+
+
+This allows PB for all top-level menu items, sub menu items, content pages.
+
+I may not be able to allow for changing menu names due to tl_if_pb_emb.html - This may be part of onboarding.
+
+**does this structure allow for a TL menu title to have submenus along with content pages list underneath itself?
+what about submenus with submenus?  What about submenus with submenus and pages?  
+What about toplevel menus with only pages and no submenu items?
+
+
+in order for the pb tile to build, it has to know what it's building.  It's pre-built, it's not dynamically built.  It doesn't build as the page loads, it is already built before the page loads. no way to pull elements from PB to set dynamically
+
+
+ cms:pages CAN import PB data from a non-clonable template.
+
+I can import a single non-clonable pb into a clonable tpl using cms:pages masterpage(that single tpl w/pb in it).  BUT, how do I get the menu pbs to list the proper lists from that main template?
+The PB tiles must have the vars already set for main page template and pages (or folders) INSIDE each tile being built!! how can that happen when building a tile insde the admin for stock???
+
+  
+Mods/tiles will be built as Site Stock - it will be up to the user to name them so they can find them later when choosing the tiles for the page being built.  It will be up to me to make the tile buttons not-so-overwhelming when building site stock
+
+
+
+There shouldn't need to be a homeview separation, right?  Just because stuff is in GLOBALS doesn't mean it has to be called.  Plus, there can be 2 Globals, just like what Trendo said in his chat....
+
+FIX All  page editables to be universal - no repetitive in editable names - keep minimal
+
+Still need to style: Individual Mods to their own public page customcmssystems.com/module-display (groups ok) for linked example of how a finished mod can look - Can be one single html page with anchors, heading (needs to be how the tile button is titled) seperating each;    
+ Decide grouping of PB mods, how to catagoize them
+The grouping will require decision-making::: 
+banner, 
+list, 
+manual, 
+gallery, 
+compound, 
+form (cannot pre-build content layout)  Current blocks to dissolve:: mods, frame, content, bs-mods
+
+NAMING TILES IN ADMIN: using dump all on the pb_wrapper (under misc), I noticed that k_template__tile_label was the var that held the tile label.  So I added cms:show for that var on the pb_misc (<hr><br><h4><cms:show k_template__tile_label /></h4>).  I can't remember if I hard-coded that to only show in the back-end but I know that is possible to do. As of now, that title doesn't appear on the main site. 
+
+
+The only way to TITLE the page where the Tile buttons are is to make it it's own page.  A Mosaic lable cannot be shown anywhere on the Admin page to differentiate between the different level of tile buttons.  
+
+So now the question is, can I title the Admin Side panel is sections where the titles above "Banner, List...." etc can be Section Headings and the PB builder pages can be filed under them?
+
+I will assume that I should be able to, and act like I can while diffentiating the sections using kfunctions for now.
+
+DONE: Adjust k_functions sections for above titling. Start to rebuild the PB pages in their correct categories.
+
+
+
+NEXTEP: Continue to build the PB mods to completion.. UNIVERSAL USABILY MINDSET FROM THE BEGINNING - Do not add and PB editing YET.  First work on all editables. On-page editing to come next.
+
+The head argument was if I should separate pages by user complexity. ie should "Transitions" be seperate pages of "Transitions - Simple", "Transitions - Complex".  IF they are seperate pages or even sepeate mosaics, then when it comes to the site page building with pagebuilder tags, each one of those tiles equates to a page or mosaic. This would increase not only the total amount of choosable buttons for the user, but it could potentially dictate the page segmentation. It could take away the choices if using seperate pb tags in the site page template. SOLUTION: go ahead and pull all subject mattered tiles in one mosaic and later, we'll see if there is a way to format the buttons, line breaks, titleing, etc. 
+
+
+
+Remake the transitions to have a type of questionaire at the first to say something like:
+"I want this transition section to have:" then checkboxes/dropdowns of bkgd/clr, text, button(s), video element, etc.... then the sections pop up as per what's chosen
+
+ACTUALLY:  Make the options it's own module to add to each tile. It should contain all the functions, which means all groups will have to use the same names. 
+
+    STEP1: find and name all vars (editables) necessary for that specific block (.htm)
+    STEP2: Create the IF tree to set all editables for universal use - this must include any and all vars for pertinent menu items (contact won't need a portfilio list), including blanks.
+
+
+HINT if needed heres forum on setting links using custom fields https://www.couchcms.com/forum/viewtopic.php?f=4&t=13712
+    
+
+THEN: read about admin page customization again to not build too far w/out formatting admin side
+________________________________________________
+I'd left this site for a while - about 6 months since the last update above.  Admin customazation didn't yeild the results I wanted, and then holidays, and I moved. 
+Getting back to this now, my directive is:
+make sure all element names are very generic - it will help with the sharing of code
+keep the hard-coded top-level menu - just allow them to be made invisible or hidden. Of course if hidden should they be able to be chosen as a dropdown? I want them to be able to be chosen, but somehow show they are hidden. Like strikeout font or something.
+
+IDEA FOR LATER: create the ability to hide/show the top-level menu items and give the dropdowns for them the ability to show when they are hidden. 
+IDEA FOR LATER: also give the menu item the ability to be renamed.  This name will also be what needs to show on the dropdown choice. 
+
+
+PROBLEM: when chosen, sdd navbar when logged out, some 'default' nav is showing as seen because "logout" doesn't change to "login". other 2 menu choices respond as expected.
+TRIED: deleted the whole .html page, also replaced with known good code from mdd - no change, still showing some default menu.  
+SOLUTION: for no reason other than the cache must've finally deleted, or wtvr, everything normalized.  even after deleting/replacing the code on .html, no change. I deleted the footer, tail and that seemed to make a change after, but not sure if that actually solved it, kicked in the cache, or what.
+
+Make sure the chosen nav menu, site thinbar and footer is consistent throughout site pages by using the embeded from the globals
+"Edit globals" link on all navbar choices only for authorized users and only when editing is on.
+All site frame snippets are grouped.
+WORK ON: pages display correctly on menu
+WORK ON: all pg frame editing is only done in globals.php on all site frame elements. Get all on page editing correct for nav/thn/ftr/globals.
+
+PROBLEM: If menu has dropdowns, top-level cannot link to a page, it only triggers the dropdown due to the link being '#' . I need the menu item clickable as well as dropping down.
+
+
+
+
+
+
+_____________________________________________
+
+Naming convention for this site [(posh ecommerce = pec)]_[block or page]_[section def1]_[sec def2]_[elem def1]_[elem def2]_[editable]:: I've decided this is too much. Keep names small and general, no repeating.
+
+
+Site nav and footer choices only to be edited in GLOBAL settings
+
+Not going to be able to give the business changeable top-level menu items. But each page can have folders for sub-menu items. Top-level will be pre-determined.
+
+To tie the final page to a menu item (top level is template) - use related pages and make relation go to a template.... or make 'content' pages for each menu item similar to nica.
+This is the nav url built to be parsed for the cloned page
+<li>
+<a href="<cms:link masterpage='music.php'/>?page=<cms:show k_template_name />&post=<cms:show k_page_id />#pg_cntnt" >
+<cms:show k_page_title />
+</a>
+</li>
+
+These parse the url and set vars, using if the vars are set to direct which view is showing. 
+<cms:set nca_msc_pg="<cms:gpc 'page' />" "global" />
+<cms:set nca_msc_pg_id="<cms:gpc 'post' />" "global" />
+<cms:if nca_msc_pg='content/track.php' || nca_msc_pg='content/album.php'>
+    <cms:set nca_msc_redirect_link = "<cms:add_querystring "<cms:link masterpage=k_template_name />" "page=<cms:show nca_msc_pg />&post=<cms:show nca_msc_pg_id />#pg_cntnt" />" />
+<cms:else />
+    <cms:set nca_msc_redirect_link="<cms:show k_template_link />" />
+</cms:if>
+
+
+
+this isn't working with multi level because I can't think of any way to get the 2nd level, or the reverse related pages with folders to work (content/_____) with a nav bar that scrolls thru the templates.  
+And since I cannot build folders from the front-end, let me try working with dynamic folders and views with a top-level that is preset.
+
+
+
+
+SO, I WILL HARD CODE THE TOP-LEVEL MENU, BUT FOR EACH, I WILL MAKE FOLDERS THAT WILL SET UP MULTIPLE LEVELS OF MENUS.   BEFORE I DO THIS, I WILL NEED TO CREATE FINAL CONTENT PAGES FOR EACH CATEGORY AND SUBCATEGORY - WHICH WILL BE A LOT, BUT IT NEEDS TO BE THE NEXT STEP.
+
+
+
+
+Dropdowns don't work because there's no way to tie the assigned dropdown with the page to list only one time on the menu.  It would take too much coding for the backwards reading: no way to relate... hhhmmm relate? 1 to many?..... 
+
+Going with the Top Level Menu in the k_function headers - can dynamic folers be pagebuilders?
+Put each Top-Level Menu Item in kfuc - with a single clonable dynamic folder, with the dynamic folder being pb
+
+
+Top Level Menu Items - Prebuilt in all sites: 10-100
+
+
+Home/About/Catelog/Portfolio/Blog/Contact 
+    -Make each menu item a heading in the Admin Panel (using kfunctions)??  OR should each menu item be Nested Pages?
+When creating sub-menu (non-content) pages, contextual dropdowns before the page can be saved:
+    First dd is the top-level menu items (required)
+    For each module that will have links, all content pages need to be categorized and available for the link
+        -this site
+        -external link
+When creating a CONTENT PAGE, there will be contextual dropdowns:
+    First dd is top-level menu (required)
+    2nd dd will be the folders/subfolders for that top-level
+    A FOLDER MUST BE CHOSEN to save the page
+    
+    
+MAYBE for the colors issue, can I 'get' the color from the template (or wtvr) before pb grabs it, then put that var into the rendered page? 
+
+
+
+make each top-level menu item it's own k-func heading But homepage will be on site along with globals - maybe higher auth for that(?).  
+Each heading will have a cloneable submenu page which will become sub-menu titles/links and each page will have a dropdown option for all the other pages in case it is sub'd off of that. (listen in main menu using pages tag with whatever's chosen as the masterpage)
+Each heading will hve a clonable content page with 2 contectual dropdowns.
+    DD#1 - top-level menu titles (required to choose)
+
+
+
+
+OR
+
+kfunc headings of top level menu items with a clonable pb template - each cloned page title is the top-level menu item
+next kfunc heading is sub-level menu ites with dd of the top-level pages to choose which it goes under
+
+
+
+
+
+Every page, every different element will need its own number. A numbering convention is needed for each
+Hero: 100-2999
+thinbar: 3000-3999
+site menu: 4000-4999
+transitions: 5000-5999
+
+SWIPER OPTIONS WILL ALL START IN THE 2K RANGE AND FOLLOW this pattern:
+HEADER FORMAT SETTINGS (100 - 175 )
+shades 100
+image or video option 105
+
+
+Textbox area size
+slider delay time
+
+paralax scroll effect rate
+overylay 
+Add video modal (could I also pop up a gallery?)
+
+
+
+HEIGHT OF HEADER VH (needs to be early choice)	
+height
+
+HEIGHT OF HEADER padding (needs to be early choice)	
+height
+
+HEADER BG IMAGE SETTINGS (175-199)
+main image
+alt desc
+clipped image
+repeatable section 
+repeatable image
+alt desc
+
+
+HEADER BG VIDEO SETTINGS (200-299)
+Optional Row (to show with conditional function - should be a group)
+Video source option
+mp4 upload + rpt
+webm upload + rpt
+ogv upload + rpt
+yt stream ID + rpt
+yt stream start + rpt
+yt stream stop + rpt
+Vimeo stream ID + rpt
+Vimeo stream start + rpt
+Vimeo stream stop + rpt
+repeatable video section
+
+
+
+HEADER TEXT BLOCK SETTINGS (300 - 374 )
+text alignment
+textbox vertical alignment
+textbox horizontal alignment
+Textbox option (text, image, form)
+text lines repeatable
+text line
+text color
+heading size
+text size
+font weight
+letter spacing
+font style
+font family
+
+image (for image choice in textblock) (375 - 390)
+
+
+text background option (390 - 419)
+textbox padding (helps with background)
+text bg color
+text bg border
+text bg border color
+
+HEADER CALL TO ACTION (420 - 499)
+option for no c2a
+row to show or hide, should be group
+C2a (submit btn) text + rpt
+C2a button or link option  + rpt
+C2a btn size + rpt
+C2a btn width + rpt
+C2a btn solid or outline choice + rpt
+C2a btn color + rpt
+C2a link color - shades of gray + rpt
+c2a link dropdown + rpt
+c2a link custom input + rpt
+c2a multiple option
+c2a padding
+
+
+
+
+HEADER TEXT BLOCK FORM (option for textblock) (500 - 699)
+form row (to show or hide - should be group)
+form title line
+form title text color
+form title heading size
+form title text size
+form title font weight
+form title letter spacing
+form title font style
+form title font family
+form paragraph line
+form paragraph text color
+form paragraph heading size
+form paragraph text size
+form paragraph font weight
+form paragraph letter spacing
+form paragraph font style
+form paragraph font family
+form input repeatable
+form input label line
+form input label line text color
+form input label line heading size
+form input label line text size
+form input label line font weight
+form input label line letter spacing
+form input label line font style
+form input label line font family
+form input required checkbox
+required value params
+required value param values
+input error message
+Form C2a (submit btn) text
+Form C2a button or link option 
+Form C2a btn size
+Form C2a btn width
+Form C2a btn solid or outline choice
+Form C2a btn color
+Form C2a link color - shades of gray
+
+
+
+HEADER ADDING VIDEO MODA OPTION (700- 774)
+row - to show or hide conditionally - should be group
+vid-add source option
+vid-add mp4 upload 
+vid-add webm upload
+vid-add ogv upload 
+vid-add yt stream ID 
+vid-add yt stream start
+vid-add yt stream stop 
+vid-add Vimeo stream ID 
+vid-add Vimeo stream start
+vid-add Vimeo stream stop 
+vid-add play button shade
+vid-add play button padding (space)
+
+
+
+HEADER SOCIAL BUTTONS ADD (775- 799)
+option to show
+row to show or hide, should be group
+icon only or btn
+social icon
+social btn size
+social btn link
+social btn color (if not branding)
+
+
+BOTTOM RAIL option for or any header maybe a note that says not recommended with scrolling effect (message pops up if both scrolling effect and option turned on) (800-899)
+option
+row to show/hide if chosen
+row size
+row shade
+text line
+text color
+text size
+font weight
+letter spacing
+font style
+font family
+
+
+HDR COLORS (900-999)
+
+
+
+SPECIALTY SETTINGS FOR SPECIFIC HEADERS (1000 - ??)
+50/50 checkbox to swap sides (possible this being inside only a container background, the background could show image if wanted to, or color. will require recoding to get a background image to appear and also the 50/50 internal (div shadow wouldn't hurt)
+
+
+
+OFFSET IMAGE -specialty setup for offset overlay (disappears on small screen) this is a completely special header, will need to look into it further to see about portability
+
+
+CUSTOM COLORS (1200-1399)
+CUSTOM FONTS (1400-1599)
+
+
+
+
+
+	
+	
+
+	

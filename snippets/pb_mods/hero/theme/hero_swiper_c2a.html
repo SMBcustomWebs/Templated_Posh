@@ -1,0 +1,37 @@
+
+
+<cms:repeat count="<cms:show hero_swpr_txtblk_c2a_opt />" startcount='1' >
+    <cms:set hero_swpr_txtblk_c2a_txt="<cms:concat 'hero_swpr_txtblk_c2a_txt_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_sz="<cms:concat 'hero_swpr_txtblk_c2a_sz_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_blk_wd="<cms:concat 'hero_swpr_txtblk_c2a_blk_wd_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_clr="<cms:concat 'hero_swpr_txtblk_c2a_clr_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_clr_out_chk="<cms:concat 'hero_swpr_txtblk_c2a_clr_out_chk_' k_count />" "global" />
+    
+    <cms:set hero_swpr_txtblk_c2a_st="<cms:concat 'hero_swpr_txtblk_c2a_st_' k_count />" "global" />
+    
+    <cms:set hero_swpr_txtblk_c2a_icon_fa_icon="<cms:concat 'hero_swpr_txtblk_c2a_icon_fa_icon_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_lnk_cust_opt="<cms:concat 'hero_swpr_txtblk_c2a_lnk_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_c2a_lnk_set="<cms:get hero_swpr_txtblk_c2a_lnk_cust_opt />" "global" />
+    <cms:if hero_swpr_txtblk_c2a_lnk_set='custom'>
+        <cms:set hero_swpr_txtblk_c2a_lnk="<cms:concat 'hero_swpr_txtblk_c2a_cst_lnk_' k_count />" "global" />
+    <cms:else />
+        <cms:set hero_swpr_txtblk_c2a_lnk="<cms:get hero_swpr_txtblk_c2a_lnk_cust_opt />" "global" />
+    </cms:if>
+
+    <a class="btn <cms:show "<cms:get hero_swpr_txtblk_c2a_st />" /> btn<cms:show "<cms:get hero_swpr_txtblk_c2a_clr_out_chk />" />-<cms:show "<cms:get hero_swpr_txtblk_c2a_clr />" /> btn<cms:show "<cms:get hero_swpr_txtblk_c2a_sz />" /> w-<cms:show "<cms:get hero_swpr_txtblk_c2a_blk_wd />" /> mt-4"  type="button" 
+    href='<cms:show "<cms:get hero_swpr_txtblk_c2a_lnk />"  />' <cms:if hero_swpr_txtblk_c2a_lnk_set='custom'> target="_blank" </cms:if> >
+    
+    
+    
+        <cms:if (hero_swpr_txtblk_c2a_st !='') && (hero_swpr_txtblk_c2a_st !='rounded-capsule') >
+            <span class="btn-brand">
+                <i class='<cms:show "<cms:get hero_swpr_txtblk_c2a_icon_fa_icon />" />'> </i>
+            </span>
+        </cms:if>
+        <cms:show "<cms:get hero_swpr_txtblk_c2a_txt />" />
+    </a>
+    <cms:if hero_swpr_c2a_social >
+        <cms:embed 'pb_mods/hero/theme/hero_swiper_social.html' />
+    </cms:if>
+
+</cms:repeat>

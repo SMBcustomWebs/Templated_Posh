@@ -1,0 +1,72 @@
+<div class="overflow-hidden">
+    <h4 class="fw-<cms:show hero_txtblk_frm_ttl_fnt_wt /> text-<cms:show hero_txtblk_frm_ttl_txt_clr /> font-<cms:show hero_txtblk_frm_ttl_font /> fst-<cms:show hero_txtblk_frm_ttl_fnt_sty /> mb-0">
+        <cms:show hero_txtblk_frm_title />
+    </h4>
+    <p class="fw-<cms:show hero_txtblk_frm_ttl_fnt_wt /> text-<cms:show hero_txtblk_frm_ttl_txt_clr /> font-<cms:show hero_txtblk_frm_ttl_font /> fst-<cms:show hero_txtblk_frm_ttl_fnt_sty />">
+        <cms:show hero_txtblk_frm_para />
+    </p>
+    <cms:form name='hero_txtbx_frm_frm' class="posh-form" method="post">
+        <cms:if k_success >
+            <h3>Form successfully submitted</h3>
+            <cms:each k_success sep='\n'>
+                <cms:show item /><br>
+            </cms:each>
+        </cms:if>
+        <cms:if k_error >
+            <h3></h3>
+            <cms:each k_error >
+                <li>
+                    <cms:show item />
+                </li>
+            </cms:each>
+        </cms:if>
+        <div class="row align-items-center">
+            <div class="">
+                <cms:if hero_txtblk_form_opt !='4'>
+                    <cms:if hero_txtblk_form_opt ge'1'>
+                        <div class="mb-3">
+                            <cms:input type="text" name="hero_txtbx_frm_email" class="form-control"  placeholder="Email" validator='email' required="1" />
+                        </div>
+                    </cms:if>
+                    <cms:if hero_txtblk_form_opt ge'2'>
+                        <div class="mb-3">
+                            <cms:input type="text" name="hero_txtbx_frm_name" class="form-control"   placeholder="Name" required="1" />
+                        </div>
+                    </cms:if>
+                    <cms:if hero_txtblk_form_opt ge'3'> 
+                        <div class="mb-3">
+                            <cms:input type='textarea' name="hero_txtbx_frm_msg" class="form-control" placeholder="Message" />
+                        </div>
+                    </cms:if>
+                <cms:else />
+                    <cms:show_repeatable 'hero_txtblk_frm_cust_rptbl' >
+                        <cms:php>
+                            global $FUNCS, $CTX;
+                            $name = $FUNCS->get_clean_url( $CTX->get('title') );
+                            $CTX->set( 'name', $name ); 
+                        </cms:php>
+                        <div class="input-group input-group-sm">
+                            <label for="<cms:show title />" class="form-label fs-<cms:show hero_txtblk_frm_cust_fnt_siz /> text-<cms:show hero_txtblk_frm_cust_txt_clr /> font-<cms:show hdr_form_font /> fw-<cms:show hero_txtblk_frm_cust_fnt_wt /> fst-<cms:show hero_txtblk_frm_cust_fnt_sty /> mt-1" >
+                                <cms:show title />
+                            </label>
+                            <cms:input type="text" name="<cms:show name />" id="<cms:show name />" class="form-control-sm w-100" 
+                            required="<cms:show fld_req_opt />" 
+                            validator="<cms:show req_vals_opt />" 
+                            validator_msg="<cms:show err_msg />" 
+                            />  
+                        </div>
+                        <cms:set input_error="<cms:get "k_error_<cms:show name/>" />" />
+                        <cms:if input_error >
+                            <p id="<cms:show name/>_error" class="text-light bg-800"><cms:show input_error /></p>
+                        </cms:if>
+                    </cms:show_repeatable>
+                </cms:if>
+            </div>
+        </div>
+        <div class="col-10 mt-4 mt-sm-3 text-<cms:show hero_txtblk_frm_c2a_plc />">
+            <button class="btn btn-sm btn<cms:show hero_txtblk_frm_c2a_clr_out_chk />-<cms:show hero_txtblk_frm_c2a_clr />" type="submit">
+                <cms:show hero_txtblk_frm_c2a_txt />
+            </button>
+        </div>
+    </cms:form>
+</div>

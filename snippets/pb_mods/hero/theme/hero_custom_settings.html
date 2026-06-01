@@ -1,0 +1,11 @@
+<!--sets text box size if custom -->
+<cms:if hero_txtbx_sz_opt='custom'>
+    <cms:capture into='txtbx_size_cap' scope="global">
+        <cms:show_repeatable 'hero_txtbx_cstm_sz_rpt'>
+            col-<cms:show hero_txtbx_cstm_col_sz />-<cms:show hero_txtbx_cstm_col_val />
+        </cms:show_repeatable>
+    </cms:capture>
+    <cms:set txtbx_size="<cms:show txtbx_size_cap />" />
+<cms:else />
+    <cms:set txtbx_size="col <cms:show hero_txtbx_sz_opt />" />
+</cms:if>

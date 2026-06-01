@@ -1,0 +1,10 @@
+<cms:if hero_swpr_vid_src_opt='1' ><!--stream video -->
+    <div class="bg-holder bg-youtube" data-youtube-embed='{"videoId":"<cms:show hero_swpr_ytb_id />","startSeconds":"<cms:show hero_swpr_ytb_str />","endSeconds":"<cms:show hero_swpr_ytb_stp />"}'>
+    </div>
+<cms:else /><!--upload video -->
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="<cms:show hero_swpr_vid_upl_vid_mp4 />" type="video/mp4" />
+        <source src="<cms:show hero_swpr_vid_upl_vid_webm />" type="video/webm" />
+        <source src="<cms:show hero_swpr_vid_upl_vid_ogv />" type="video/ogv" />
+    </video>
+</cms:if>

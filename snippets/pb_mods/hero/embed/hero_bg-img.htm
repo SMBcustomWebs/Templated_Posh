@@ -1,0 +1,21 @@
+<cms:editable type='group' name='hero_bg_img_grp' label='Hero Backing Image' collapsed="1"  order='175'>
+    
+    <cms:editable type='row' name='hero_bg_img_row' order='177'>
+        <cms:editable type='message' name='hero_bg_img_msg' order='176'>
+            <h2>Hero Background Image</h2><h4>This image is covered up with any solid color chosen.</h4><p>Recommended to have an image to back up a video.</p>
+        </cms:editable>
+        <cms:editable type='image' name='hero_img' label='Main Headerz Image' desc='16:9 ratio - 2560x1440,1920x1080,etc'
+            width='2560'
+            hight='1440'
+            enforce_max='1'
+            show_preview='1'
+            preview_width='75'
+            class='col-md-6'
+            order='179'
+        />
+        <cms:editable type='text' name='hero_img_alt' label='Image Description'  desc='For screen readers, SEO'
+            class='col-md-6'
+            order='180' 
+        />
+    </cms:editable>
+</cms:editable>

@@ -1,0 +1,23 @@
+<cms:repeat count="<cms:show hero_swpr_txtblk_txt_linct_opt />" startcount='1' >
+   <cms:set hero_swpr_txtblk_txt_hdg="<cms:concat 'hero_swpr_txtblk_txt_hdg_sz_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_txt_ln="<cms:concat 'hero_swpr_txtblk_txt_txt_ln_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_fnt_wt="<cms:concat 'hero_swpr_txtblk_txt_fnt_wt_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_clr="<cms:concat 'hero_swpr_txtblk_txt_clr_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_font="<cms:concat 'hero_swpr_txtblk_txt_font_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_fnt_st="<cms:concat 'hero_swpr_txtblk_txt_fnt_st_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_ltr_spc="<cms:concat 'hero_swpr_txtblk_txt_ltr_spc_' k_count />" "global" />
+    <cms:set hero_swpr_txtblk_txt_sz="<cms:concat 'hero_swpr_txtblk_txt_sz_' k_count />" "global" />
+    
+    <<cms:show "<cms:get hero_swpr_txtblk_txt_hdg />" /> 
+        class="
+            fw-<cms:show "<cms:get hero_swpr_txtblk_txt_fnt_wt />" />  
+            text-<cms:show "<cms:get hero_swpr_txtblk_txt_clr />" /> 
+            font-<cms:show "<cms:get hero_swpr_txtblk_txt_font />" /> 
+            fst-<cms:show "<cms:get hero_swpr_txtblk_txt_fnt_st />" />
+            ls-<cms:show "<cms:get hero_swpr_txtblk_txt_ltr_spc  />" />
+            fs-<cms:show "<cms:get hero_swpr_txtblk_txt_sz />" />
+    ">
+        <cms:show "<cms:get hero_swpr_txtblk_txt_txt_ln />" />
+    </<cms:show "<cms:get hero_swpr_txtblk_txt_hdg />" />>
+    
+</cms:repeat>

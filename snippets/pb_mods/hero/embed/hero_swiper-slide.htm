@@ -1,0 +1,651 @@
+<cms:repeatable name='hero_swpr_rpt' label='Add Carousell Slides' stacked_layout='1'  order='3005'>
+    <cms:editable type='message' name='hero_swpr_txtblk_img_vid_opt_msg' order='3006'>
+        <h1>Start New Slide Setting and Options</h1>
+        <h2>This dropdown will set this slide's background as an image or a video</h2>
+         <h4>Different options open up below depending on the choice</h4>
+        <p>Image is set as default</p>
+    </cms:editable>
+    <cms:editable type='dropdown' name='hero_swpr_img_vid_opt' label='Header is Image or Video' desc=''
+        opt_values='Image=0|Video=1'
+        order='3008'
+    />
+     <cms:func _into='hero_swpr_img_chc' hero_swpr_img_vid_opt=''>
+        <cms:if hero_swpr_img_vid_opt='0'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_vid_chc' hero_swpr_img_vid_opt=''>
+        <cms:if hero_swpr_img_vid_opt='1'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='message' name='hero_swpr_img_opt_msg' not_active=hero_swpr_img_chc order='3009'>
+        <hr><br>
+        <h2>Upload the image by clicking Browse Server</h2>
+         <h4>A window will show where you will be able to upload and choose images.</h4>
+        <p>Alt description is required for screen readers and SEO</p>
+    </cms:editable>
+    <cms:editable type='image' name='hero_swpr_img' label='Background Image' desc='16:9 ratio - 2560x1440,1920x1080,etc'
+        width='2560'
+        hight='1440'
+        enforce_max='1'
+        show_preview='1'
+        preview_width='75'
+        not_active=hero_swpr_img_chc
+        order='3010'
+    />
+    <cms:editable type='text' name='hero_swpr_img_alt' label='Image Description'  desc='For screen readers, SEO'
+        not_active=hero_swpr_img_chc
+        order='3012'
+    />
+    <cms:editable type='message' name='hero_swpr_vid_src_opt_msg' not_active=hero_swpr_vid_chc order='3013'>
+        <hr><br>
+        <h2>Choose to upload a video or find the YouTube video ID</h2>
+         <h4>Options will open below</h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type='dropdown' name='hero_swpr_vid_src_opt' not_active=hero_swpr_vid_chc label='Upload or Stream' 
+        opt_values='Upload=0|You Tube=1'
+        order='3014'
+    />
+    <cms:func _into='hero_swpr_vid_lcl_chc' hero_swpr_img_vid_opt='' hero_swpr_vid_src_opt='' >
+        <cms:if (hero_swpr_img_vid_opt='1') && (hero_swpr_vid_src_opt='0') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_vid_stm_chc' hero_swpr_img_vid_opt='' hero_swpr_vid_src_opt='' >
+        <cms:if (hero_swpr_img_vid_opt='1') && (hero_swpr_vid_src_opt='1') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='message' name='hero_swpr_vid_stm_msg' not_active=hero_swpr_vid_stm_chc order='3015'>
+        <hr><br>
+        <h2>Type in ONLY the YouTube video ID</h2>
+         <h4>Video IDs can be found in the url and also the share link. ONLY the ID may be used.</h4>
+        <p>Streaming videos will restart from the starting point each time the slide is visible. Enter the start time in seconds. 0 is default start, 20 is default stop.</p>
+    </cms:editable>
+    <cms:editable type="text" name="hero_swpr_ytb_id" label="You Tube Video ID" desc='video ID only'
+        width="275"
+        not_active=hero_swpr_vid_stm_chc
+        order='3016'
+    />  
+    <cms:editable type="text" name="hero_swpr_ytb_str" label="Time Point To Start Stream Loop"  desc="in seconds only"
+        maxlength='10'
+        width="30"
+        not_active=hero_swpr_vid_stm_chc
+        order="3018"
+    >0</cms:editable>
+    <cms:editable type="text" name="hero_swpr_ytb_stp" label="Time Point To Stop Stream Loop"  desc="in seconds only"
+        maxlength='10'
+        width="30"
+        not_active=hero_swpr_vid_stm_chc
+        order="3019"
+    >20</cms:editable>
+    <cms:editable type='message' name='hero_swpr_vid_lcl_msg' not_active=hero_swpr_vid_lcl_chc order='3020'>
+        <hr><br>
+        <h2>Click 'Browse Server' to open dialoge box with options to upload or choose</h2>
+         <h4>At least one source is required. Only mp4,webm, ogv formats allowed ( mp4 is most common. )</h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type="file" name="hero_swpr_vid_upl_vid_mp4" label="mp4"
+        width='30' 
+        not_active=hero_swpr_vid_lcl_chc
+        order='3022'  
+    />
+    <cms:editable type="file" name="hero_swpr_vid_upl_vid_webm" label="webm" 
+        width='30'
+        not_active=hero_swpr_vid_lcl_chc
+        order='3025'
+    />
+    <cms:editable type="file" name="hero_swpr_vid_upl_vid_ogv" label="ogv" 
+        width='30'
+        not_active=hero_swpr_vid_lcl_chc
+        order='3029'
+    />
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_img_opt_msg' order='3040'>
+        <hr><br><hr><br>
+        <h2>Choose whether the information on the slide will be input text or uploaded image.</h2>
+         <h4>If no information is required, choose 'Text' and keep inputs empty.</h4>
+        <p>Options will appear below based on which is chosen</p>
+    </cms:editable>
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_blk_opt' label='Text Block Information' desc='what is inside text block. All options below'
+        opt_values='Text=0|Image=1'
+        class='col-md-4'
+        order='3042'
+    />
+    <cms:func _into='hero_swpr_txtblk_txt_chc' hero_swpr_txtblk_blk_opt=''>
+        <cms:if hero_swpr_txtblk_blk_opt='0'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>  
+    <cms:func _into='hero_swpr_txtblk_img_chc' hero_swpr_txtblk_blk_opt=''>
+        <cms:if hero_swpr_txtblk_blk_opt='1'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_linct_msg' not_active=hero_swpr_txtblk_txt_chc order='3060'>
+        <hr><br><br>
+        <h2>Lines of Text</h2>
+         <h4>Carousell images can create a confusing user experience if there is too much information on a slide before it transitions away.</h4>
+        <p>Choose how many lines of text for this slide</p>
+    </cms:editable>
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_linct_opt' label='How many lines of text' desc=''
+        opt_values='1|2|3|4|5'
+        not_active=hero_swpr_txtblk_txt_chc
+        order='3061'
+    /> 
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_c2a_msg'  order='3045'>
+        <hr><br><br>
+        <h2>Call-To-Action is the Link Button</h2>
+         <h4>Link buttons take the user to another location on the site. Too many may cause a poor user experience when on a carousell</h4>
+        <p>Choose how many call-to-action links for this slide</p>
+    </cms:editable>
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_opt' label='How many link buttons' desc=''
+        opt_values='1|2|None=0'
+        order='3046'
+    />
+    
+     <cms:func _into='hero_swpr_txtblk_c2a_2' hero_swpr_txtblk_c2a_opt=''>
+        <cms:if hero_swpr_txtblk_c2a_opt ge '2'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_txtblk_c2a_1' hero_swpr_txtblk_c2a_opt=''>
+        <cms:if hero_swpr_txtblk_c2a_opt ge '1'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='message' name='hero_swpr_txtblk_img_opt_msg' not_active=hero_swpr_txtblk_img_chc order='3049'>
+        <hr><br>
+        <h2>Informational image chosen. </h2>
+         <h4>Click Browse Server to open up image dialogue box</h4>
+        <p>Alt description is required for screen readers and SEO</p>
+    </cms:editable>
+   not_active=hero_swpr_txtblk_img_chc order='3050' >
+    <cms:editable type='image' name='hero_swpr_txtblk_img' label='Text Block Image' desc='square - 1:1 ratio'
+        width='500'
+        hight='500'
+        enforce_max='1'
+        show_preview='1'
+        preview_width='75'
+        not_active=hero_swpr_txtblk_img_chc
+        order='3051'
+    />
+    <cms:editable type='text' name='hero_swpr_img_alt' label='Image Description'  desc='For screen readers, SEO'
+        not_active=hero_swpr_txtblk_img_chc
+        order='3052'
+    />
+   
+    
+    <cms:func _into='hero_swpr_txtblk_txt_linct_5' hero_swpr_txtblk_blk_opt='' hero_swpr_txtblk_txt_linct_opt='' >
+        <cms:if (hero_swpr_txtblk_blk_opt='0') && (hero_swpr_txtblk_txt_linct_opt ge '5') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_txtblk_txt_linct_4' hero_swpr_txtblk_blk_opt='' hero_swpr_txtblk_txt_linct_opt='' >
+        <cms:if (hero_swpr_txtblk_blk_opt='0') && (hero_swpr_txtblk_txt_linct_opt ge '4') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_txtblk_txt_linct_3' hero_swpr_txtblk_blk_opt='' hero_swpr_txtblk_txt_linct_opt='' >
+        <cms:if (hero_swpr_txtblk_blk_opt='0') && (hero_swpr_txtblk_txt_linct_opt ge '3') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_txtblk_txt_linct_2' hero_swpr_txtblk_blk_opt='' hero_swpr_txtblk_txt_linct_opt='' >
+        <cms:if (hero_swpr_txtblk_blk_opt='0') && (hero_swpr_txtblk_txt_linct_opt ge '2') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_swpr_txtblk_txt_linct_1' hero_swpr_txtblk_blk_opt='' hero_swpr_txtblk_txt_linct_opt='' >
+        <cms:if (hero_swpr_txtblk_blk_opt='0') && (hero_swpr_txtblk_txt_linct_opt ge '1') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    
+   
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_msg_1' not_active=hero_swpr_txtblk_txt_linct_1  order='3060'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for the First Line Text and Formatting</h2>
+         <h4>Be mindfull of the width of the text box setting above. If need be, set it to Full Width</h4>
+        <p>Setting Text Size and color is important for contrast. All other settings may stay at default.</p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_txt_txt_ln_1' label='Text'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3061' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_clr_1' label='Text Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3062'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_hdg_sz_1' label='Main Text Size' 
+        opt_values='dropdowns/heading-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3063'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_sz_1' label='Text Size (for more control over size)' 
+        opt_values='dropdowns/text-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3064'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_wt_1' label='Font Weight' 
+        opt_values='dropdowns/font-weight.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3065'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_ltr_spc_1' label='Letter Spacing' 
+        opt_values='dropdowns/hdr_ltr-spc.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3066'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_st_1' label='Font Style' 
+        opt_values='dropdowns/font-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3067'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_font_1' label='Font Family' 
+        opt_values='dropdowns/font-family.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_1
+        order='3068'  
+    />
+
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_msg_2' not_active=hero_swpr_txtblk_txt_linct_2  order='3070'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for 2nd Line Text and Formatting</h2>
+         <h4>Be mindfull of the width of the text box setting above. If need be, set it to Full Width</h4>
+        <p>Setting Text Size and color is important for contrast. All other settings may stay at default.</p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_txt_txt_ln_2' label='Text'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3071' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_clr_2' label='Text Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3072'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_hdg_sz_2' label='Main Text Size' 
+        opt_values='dropdowns/heading-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3073'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_sz_2' label='Text Size (for more control over size)' 
+        opt_values='dropdowns/text-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3074'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_wt_2' label='Font Weight' 
+        opt_values='dropdowns/font-weight.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3075'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_ltr_spc_2' label='Letter Spacing' 
+        opt_values='dropdowns/hdr_ltr-spc.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3076'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_st_2' label='Font Style' 
+        opt_values='dropdowns/font-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3077'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_font_2' label='Font Family' 
+        opt_values='dropdowns/font-family.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_2
+        order='3078'  
+    />
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_msg_3' not_active=hero_swpr_txtblk_txt_linct_3  order='3080'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for 3rd Line Text and Formatting</h2>
+         <h4>Be mindfull of the width of the text box setting above. If need be, set it to Full Width</h4>
+        <p>Setting Text Size and color is important for contrast. All other settings may stay at default.</p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_txt_txt_ln_3' label='Text'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3081' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_clr_3' label='Text Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3082'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_hdg_sz_3' label='Main Text Size' 
+        opt_values='dropdowns/heading-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3083'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_sz_3' label='Text Size (for more control over size)' 
+        opt_values='dropdowns/text-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3084'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_wt_3' label='Font Weight' 
+        opt_values='dropdowns/font-weight.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3085'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_ltr_spc_3' label='Letter Spacing' 
+        opt_values='dropdowns/hdr_ltr-spc.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3086'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_st_3' label='Font Style' 
+        opt_values='dropdowns/font-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3087'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_font_3' label='Font Family' 
+        opt_values='dropdowns/font-family.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_3
+        order='3088'  
+    />
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_msg_4' not_active=hero_swpr_txtblk_txt_linct_4  order='3090'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for 3rd Line Text and Formatting</h2>
+         <h4>Be mindfull of the width of the text box setting above. If need be, set it to Full Width</h4>
+        <p>Setting Text Size and color is important for contrast. All other settings may stay at default.</p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_txt_txt_ln_4' label='Text'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3091' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_clr_4' label='Text Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3092'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_hdg_sz_4' label='Main Text Size' 
+        opt_values='dropdowns/heading-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3093'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_sz_4' label='Text Size (for more control over size)' 
+        opt_values='dropdowns/text-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3094'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_wt_4' label='Font Weight' 
+        opt_values='dropdowns/font-weight.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3095'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_ltr_spc_4' label='Letter Spacing' 
+        opt_values='dropdowns/hdr_ltr-spc.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3096'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_st_4' label='Font Style' 
+        opt_values='dropdowns/font-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3097'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_font_4' label='Font Family' 
+        opt_values='dropdowns/font-family.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_4
+        order='3098'  
+    />
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_txt_msg_5' not_active=hero_swpr_txtblk_txt_linct_5  order='3100'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for 3rd Line Text and Formatting</h2>
+         <h4>Be mindfull of the width of the text box setting above. If need be, set it to Full Width</h4>
+        <p>Setting Text Size and color is important for contrast. All other settings may stay at default.</p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_txt_txt_ln_5' label='Text'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3101' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_clr_5' label='Text Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3102'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_hdg_sz_5' label='Main Text Size' 
+        opt_values='dropdowns/heading-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3103'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_sz_5' label='Text Size (for more control over size)' 
+        opt_values='dropdowns/text-size.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3104'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_wt_5' label='Font Weight' 
+        opt_values='dropdowns/font-weight.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3105'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_ltr_spc_5' label='Letter Spacing' 
+        opt_values='dropdowns/hdr_ltr-spc.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3106'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_fnt_st_5' label='Font Style' 
+        opt_values='dropdowns/font-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3107'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_txt_font_5' label='Font Family' 
+        opt_values='dropdowns/font-family.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_txt_linct_5
+        order='3108'  
+    />
+    <cms:editable type='message' name='hero_swpr_txtblk_c2a_msg_1' not_active=hero_swpr_txtblk_c2a_1  order='3128'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for the <cms:if hero_swpr_txtblk_c2a_opt gt '1'>first </cms:if>call-to-action button</h2>
+         <h4>Choosing 'custom' for link will open up a new field</h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_txt_1' label='Call To Action Button Text'
+        maxlength='60'
+        width='275'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3130' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_sz_1' label='Button Size' 
+        opt_values='Normal=|Small=-sm|Smaller=-xs|Large=-lg'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3131'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_blk_wd_1' label='Set Width' desc='percentage of text block or default'
+        opt_values='Default=|Full=100|1/4=25|Half=50|3/4=75'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3132'
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_clr_1' label='Button Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3133'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_clr_out_chk_1' label='Solid Color or Outline' desc=''
+        opt_values='Solid= |Outline= -outline'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3134'
+    />
+
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_st_1' label='Button Style' desc=''
+        opt_values='dropdowns/button-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3135'
+    />
+    <cms:func _into='hero_swpr_txtblk_c2a_icon_fa_chc_1' hero_swpr_txtblk_c2a_st_1=''>  
+        <cms:if (hero_swpr_txtblk_c2a_st_1 !='') && (hero_swpr_txtblk_c2a_st_1 != 'rounded-capsule') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='message' name='hero_swpr_txtblk_c2a_icon_fa_msg_1' not_active=hero_swpr_txtblk_c2a_icon_fa_chc_1 order='3136'>
+        <h3>Font Awesome Icons v6</h3>
+        <h4>enter the full code - ex: fab fa-gitlab</h4>
+        <p>see all options at here <a href="https://fontawesome.com/v6/search" target="_blank">https://fontawesome.com/v6/search</a></p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_icon_fa_icon_1' label='Button Icon' desc=''
+        not_active=hero_swpr_txtblk_c2a_icon_fa_chc_1
+        order='3137'
+    />
+    
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_lnk_1' label='Button Link' 
+        opt_values='dropdowns/links.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_1
+        order='3138'  
+    />
+    <cms:func _into='hero_swpr_txtblk_c2a_lnk_cstm_1' hero_swpr_txtblk_c2a_lnk_1='' hero_swpr_txtblk_c2a_opt=''>
+        <cms:if (hero_swpr_txtblk_c2a_lnk_1='custom') && (hero_swpr_txtblk_c2a_opt ge '1') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_cst_lnk_1' label='Custom Button Link'  desc='enter full url'
+        not_active=hero_swpr_txtblk_c2a_lnk_cstm_1
+        order='3139' 
+    />
+    
+    <cms:editable type='message' name='hero_swpr_txtblk_c2a_msg_2' not_active=hero_swpr_txtblk_c2a_2  order='3140'>
+        <hr><br><hr><br>
+        <h2>The Following Settings Are for 2nd call-to-action button</h2>
+         <h4>Choosing 'custom' for link will open up a new field</h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_txt_2' label='Call To Action Button Text'
+        maxlength='60'
+        width='275'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3141' 
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_sz_2' label='Button Size' 
+        opt_values='Normal=|Small=-sm|Smaller=-xs|Large=-lg'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3142'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_blk_wd_2' label='Set Width' desc='percentage of text block or default'
+        opt_values='Default=|Full=100|1/4=25|Half=50|3/4=75'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3143'
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_clr_2' label='Button Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3144'  
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_clr_out_chk_2' label='Solid Color or Outline' desc=''
+        opt_values='Solid= |Outline= -outline'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3145'
+    />
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_st_2' label='Button Style' desc=''
+        opt_values='dropdowns/button-style.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3146'
+    />
+
+    <cms:func _into='hero_swpr_txtblk_c2a_icon_fa_chc_2' hero_swpr_txtblk_c2a_st_2=''>  
+        <cms:if (hero_swpr_txtblk_c2a_st_2 !='') && (hero_swpr_txtblk_c2a_st_2 !='rounded-capsule') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='message' name='hero_swpr_txtblk_c2a_icon_fa_msg_2' not_active=hero_swpr_txtblk_c2a_icon_fa_chc_2 order='3147'>
+        <h3>Font Awesome Icons v6</h3>
+        <h4>enter the full code - ex: fab fa-gitlab</h4>
+        <p>see all options at here <a href="https://fontawesome.com/v6/search" target="_blank">https://fontawesome.com/v6/search</a></p>
+    </cms:editable>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_icon_fa_icon_2' label='Button Icon' desc=''
+     not_active=hero_swpr_txtblk_c2a_icon_fa_chc_2
+        order='3148'
+    />
+    
+    <cms:editable type='dropdown' name='hero_swpr_txtblk_c2a_lnk_2' label='Button Link' 
+        opt_values='dropdowns/links.htm'
+        dynamic='opt_values'
+        not_active=hero_swpr_txtblk_c2a_2
+        order='3149'  
+    />
+    <cms:func _into='hero_swpr_txtblk_c2a_lnk_cstm_2' hero_swpr_txtblk_c2a_lnk_2='' hero_swpr_txtblk_c2a_opt=''>
+        <cms:if (hero_swpr_txtblk_c2a_lnk_2='custom') && (hero_swpr_txtblk_c2a_opt ge '2') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='text' name='hero_swpr_txtblk_c2a_cst_lnk_2' label='Custom Button Link'  desc='enter full url'
+        not_active=hero_swpr_txtblk_c2a_lnk_cstm_2
+        order='3150' 
+    />
+</cms:repeatable>

@@ -1,0 +1,197 @@
+<cms:editable type='group' name='hero_txtblk_form_grp' label='Hero Text Block Form' not_active=hero_txtblk_form_chc order='501'>
+    <cms:editable type='row' name='hero_txtblk_form_opt_row' label='Choose Form' order='509'>
+        <cms:editable type='message' name='hero_txtblk_form_msg' order='510'>
+            <hr><br>
+            <h2>Choose the Type of Form</h2><h4></h4>
+            <p></p>
+        </cms:editable>
+        <cms:editable type='dropdown' name='hero_txtblk_form_opt' label="Type of Form" order="515"
+            opt_values='Simple (Join Email)=1|Simple Extended (name and email)=2|Basic (Contact Us)=3|Custom=4'
+            class='col-md-4'
+            order='518'
+        />
+    </cms:editable>
+    <cms:func _into='hero_txtblk_form_chc1' hero_txtblk_form_opt=''>
+        <cms:if hero_txtblk_form_opt!="4" >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_txtblk_form_chc2' hero_txtblk_form_opt=''>
+        <cms:if hero_txtblk_form_opt="2" >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_txtblk_form_chc3' hero_txtblk_form_opt=''>
+        <cms:if hero_txtblk_form_opt="3" >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:func _into='hero_txtblk_form_chc4' hero_txtblk_form_opt=''>
+        <cms:if hero_txtblk_form_opt="4" >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func> 
+    <cms:editable type='row' name='hero_txtblk_form_smpl_row' not_active=hero_txtblk_form_chc1  order='519'>
+        <cms:editable type='message' name='hero_txtblk_frm_smpl_msg' order='520'>
+            <h3>Form will show an email field</h3>
+        </cms:editable>
+    </cms:editable>    
+     <cms:editable type='row' name='hero_txtblk_form_smplx_row' not_active=hero_txtblk_form_chc2 order='521'>
+        <cms:editable type='message' name='hero_txtblk_frm_smplx_msg' order='522'>
+            <h3>and a name field</h3>
+        </cms:editable>
+    </cms:editable>  
+    <cms:editable type='row' name='hero_txtblk_form_cntct_row' not_active=hero_txtblk_form_chc3 order='524'>
+        <cms:editable type='message' name='hero_txtblk_frm_cntc_msg' order='526'>
+            <h3>and a name field and message field</h3>
+        </cms:editable>
+    </cms:editable> 
+    <cms:editable type='row' name='hero_txtblk_form_hr_row' order='528'>
+        <cms:editable type='message' name='hero_txtblk_hr_msg' order='529'>
+            <hr><br><hr><br>
+        </cms:editable>
+    </cms:editable> 
+    <cms:editable type='row' name='hero_txtblk_form_ttl_row'  order='530'>
+        <cms:editable type='message' name='hero_txtblk_frm_ttl_msg' order='531'>
+            <h2>These Settings Are for the Form and Byline of the Form Title</h2><h4>These are optional</h4>
+        </cms:editable>
+         <cms:editable type="text" name="hero_txtblk_frm_title" label="Form Title" desc="Form Title leave blank if title not needed" 
+            class='col-md-6'
+            order='532' 
+        />
+        <cms:editable type="text" name="hero_txtblk_frm_para" label="Form Byline" desc="description of form leave blank if title not needed" 
+            class='col-md-6'
+            order='533'
+        />
+        <cms:editable type='dropdown' name='hero_txtblk_frm_ttl_txt_clr' label='Form Title Color' 
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='535'  
+        />
+        <cms:editable type='dropdown' name='hero_txtblk_frm_ttl_fnt_wt' label='Form Title Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='537'  
+        />
+        <cms:editable type='dropdown' name='hero_txtblk_frm_ttl_fnt_sty' label='Form Title Font Style' 
+            opt_values='dropdowns/font-style.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='539'  
+        />
+        <cms:editable type='dropdown' name='hero_txtblk_frm_ttl_font' label='Form Title Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='540'  
+        />
+    </cms:editable>
+  
+    <cms:editable type='row' name='hero_txtblk_frm_cust_row' not_active=hero_txtblk_form_chc4  order='590'> 
+        <cms:editable type='message' name='hero_txtblk_frm_ttl_msg' order='531'>
+            <hr><br><h2>For New Line click "Add Row"</h2><h4>"Name" is default and can be changed</h4>
+        </cms:editable>
+        <cms:repeatable name="hero_txtblk_frm_cust_rptbl" label="Form Entries" stacked_layout='1' order="593"> 
+            <cms:editable type="text" name="title" label="Label for the input field" 
+                order='598'
+            >Name</cms:editable>
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_txt_clr' label='Label Text Color' 
+                opt_values='dropdowns/solid-colors.htm'
+                dynamic='opt_values'
+                order='601'  
+            />
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_fnt_wt' label='Font Weight' 
+                opt_values='dropdowns/font-weight.htm'
+                dynamic='opt_values'
+                order='602'  
+            />
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_fnt_siz' label='Font Size' 
+                opt_values='dropdowns/text-size.htm'
+                dynamic='opt_values'
+                order='604'  
+            />
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_fnt_sty' label='Font Style' 
+                opt_values='dropdowns/font-style.htm'
+                dynamic='opt_values'
+                order='604'  
+            />
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_font' label='Font Family' 
+                opt_values='dropdowns/font-family.htm'
+                dynamic='opt_values'
+                order='606'  
+            />
+            <cms:editable type="checkbox" name="hero_txtblk_frm_cust_fld_req_opt" label="Required?"  
+                opt_values='Yes=1' 
+                order='607'  
+            />
+            <cms:func _into='fld_req' fld_req_opt=''>
+                <cms:if "<cms:is '1' in=fld_req_opt />">
+                    show
+                    <cms:else />
+                    hide
+                </cms:if>
+            </cms:func>
+            <cms:editable type='dropdown' name='hero_txtblk_frm_cust_req_vals_opt' label="Type of Validation" 
+                opt_values='Not Empty=|Email=email|Alpha Numberic=alpha_num|Positive Numbers Only=non_negative_decimal|Minimum Length=min_len|Maximum Length=max_len'
+                not_active=fld_req
+                order='608'
+            />
+            <cms:func _into='req_vals' hdr_frm_req_vals_opt=''>
+                <cms:if (hdr_frm_req_vals_opt="min_len") || (hdr_frm_req_vals_opt="max_len" ) >
+                    show
+                    <cms:else />
+                    hide
+                </cms:if>
+            </cms:func>
+            <cms:editable type="text" name="hero_txtblk_frm_cust_req_vals" label="Valid Number" 
+                max_length='5'
+                width='175'
+                not_active=req_vals
+                order='610' 
+            />
+            <cms:editable type="text" name="hero_txtblk_frm_cust_err_msg" label="Error Message"  order='611' />
+        </cms:repeatable>
+        
+    </cms:editable>
+     <cms:editable type='row' name='hero_txtblk_frm_c2a_row' label='Form Submit Button' order='620'>
+       <cms:editable type='message' name='hero_txtblk_frm_c2a_msg' order='622'>
+            <h2>These Settings Are For the 'Submit' Button for the Form</h2>
+        </cms:editable>  
+      <cms:editable type='text' name='hero_txtblk_frm_c2a_txt' label='Submit Button Text'
+        maxlength='60'
+        width='275'
+        class='col-md-3'
+        order='625' 
+    >Submit</cms:editable>
+    
+    <cms:editable type='dropdown' name='hero_txtblk_frm_c2a_plc' label='Button Placement' 
+        opt_values='dropdowns/h-align.htm'
+        dynamic='opt_values'
+        class='col-md-3'
+        order='626'  
+    />
+    <cms:editable type='dropdown' name='hero_txtblk_frm_c2a_clr' label='Button Color' 
+        opt_values='dropdowns/solid-colors.htm'
+        dynamic='opt_values'
+        class='col-md-3'
+        order='627'  
+    />
+    <cms:editable type='dropdown' name='hero_txtblk_frm_c2a_clr_out_chk' label='Solid Color or Outline' desc=''
+        opt_values='Solid=|Outline= -outline'
+        class='col-md-3'
+        order='629'
+        />
+    </cms:editable>
+
+</cms:editable>
+

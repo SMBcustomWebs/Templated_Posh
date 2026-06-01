@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row min-vh-<cms:show hero_swpr_vht /> align-items-<cms:show hero_swpr_txtbx_valg /> justify-content-<cms:show hero_swpr_txtbx_halg /> py-<cms:show hero_swpr_py_ht />">
+        <div class="<cms:show swpr_txtbx_size />" >
+            <div class="<cms:if hero_swpr_txtbx_bg_opt >shop-slider-card</cms:if> text-<cms:show hero_swpr_txt_halg /> p-<cms:show hero_swpr_txtblk_bg_pd />">
+                 <cms:if hero_swpr_txtblk_blk_opt='1' ><!-- image chosen -->
+                    <cms:embed 'pb_mods/hero/theme/hero_swiper_txtbx_img.html' />
+                <cms:else /><!-- text chosen -->
+                    <cms:embed 'pb_mods/hero/theme/hero_swiper_txtbx_txt.html' />
+                </cms:if>
+                <!-- call-to-action start -->
+                <cms:embed 'pb_mods/hero/theme/hero_swiper_c2a.html' /> 
+            <!-- call-to-action end -->
+            </div>
+        </div>
+    </div>
+    <cms:if hero_swpr_bot_rail_opt>
+        <div class="<cms:show hero_bot_rail_opt /> align-self-bottom">
+            <div class="bg-<cms:show hero_bot_rail_ln_shd /> text-center py-<cms:show hero_bot_rail_thk /> ">
+                <div class="text-<cms:show hero_bot_rail_ln_txt_clr /> fs-<cms:show hero_bot_rail_ln_txt_sz /> fst-<cms:show hero_bot_rail_ln_fnt_st /> fw-<cms:show hero_bot_rail_ln_fnt_wt /> font-<cms:show hero_bot_rail_ln_font /> pt-1 mb-0">
+                    <cms:show hero_bot_rail_lnt_txt_ln />
+                </div>
+            </div>
+        </div>
+    </cms:if>
+</div>

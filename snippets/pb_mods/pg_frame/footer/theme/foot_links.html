@@ -1,0 +1,28 @@
+<!-- <section> begin from software ============================-->
+<footer class="py-<cms:show site_ftr_lnk_pad_y /> bg-<cms:show site_ftr_lnk_bg_clr_opt /> fs-<cms:show site_ftr_lnk_txt_sz /> fst-<cms:show site_ftr_lnk_txt_fnt_st /> fw-<cms:show site_ftr_lnk_txt_fnt_wt />  ls-<cms:show site_ftr_lnk_txt_ltr_spc /> font-<cms:show site_ftr_lnk_txt_font /> text-<cms:show site_ftr_lnk_txt_clr_opt />">
+    <cms:popup_edit 'site_ftr_lnk_gen_set_row|site_ftr_lnk_pad_y|site_ftr_lnk_bg_clr_opt|site_ftr_lnk_txt_clr_opt|site_ftr_lnk_frmt_row|site_ftr_lnk_txt_sz|site_ftr_lnk_txt_fnt_wt|site_ftr_lnk_txt_ltr_spc|site_ftr_lnk_txt_fnt_st|site_ftr_lnk_txt_font' link_text="<span class='bg-800 link-warning' title='Edit general footer format'>[EDIT FOOTER]</span>" />
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="my-2">
+                    &copy; Copyright 
+                    <cms:date format='Y' /> 
+                    <cms:get_field 'site_name' masterpage='globals.php' />
+                </div>
+            </div> 
+            <cms:repeat count='9'><!-- set count as k_total_rows of cms:show_repeatable 'site_ftr_lnk_lnks_rpt' -->
+                <cms:set ftr_lnk_col = "<cms:mod k_count '4' />" />
+                <cms:if (ftr_lnk_col='0') > <!--  || (k_first_row='1') -->
+                    <div class="col-4 col-md-2">
+                </cms:if>
+                <a class="link-<cms:show site_ftr_lnk_txt_clr_opt /> my-2 d-block" href="#!"> 
+                    Link <cms:show ftr_lnk_col />
+                </a>
+                 <cms:if (ftr_lnk_col='3')><!--  || (k_last_row='1') -->
+                    </div>
+                </cms:if>
+            </cms:repeat><!-- /cms:show_repeatable -->
+             <cms:popup_edit 'site_ftr_lnk_lnks_rpt' link_text="<span class='bg-800 link-warning' title='Edit links'>EDIT</span>" />
+        </div>
+    </div>
+</footer>

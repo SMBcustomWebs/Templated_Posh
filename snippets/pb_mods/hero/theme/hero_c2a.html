@@ -1,0 +1,34 @@
+    <cms:if hero_c2a_lnk='custom'>
+        <cms:set c2a_lnk="<cms:show hero_c2a_cst_lnk />" />
+    <cms:else />
+        <cms:set c2a_lnk="<cms:show hero_c2a_lnk />" />
+    </cms:if>
+    <cms:if hero_c2a_opt ge '1'>
+        <cms:if hero_c2a_opt='2'> <!-- mulitple buttons -->
+            <cms:show_repeatable 'hero_mult_c2a_rpt' > 
+                <cms:if hero_c2a_mult_pdg='1'>
+                    <br>
+                </cms:if>
+                <a class="mx-<cms:show hero_c2a_mult_pdg /> btn <cms:show hero_c2a_mult_st /> btn<cms:show hero_c2a_mult_clr_out_chk />-<cms:show hero_c2a_mult_clr />  btn<cms:show hero_c2a_mult_sz /> mt-4 w-<cms:show hero_c2a_mult_wd />" type="button" href="<cms:show c2a_lnk />">
+                    <cms:if (hero_c2a_mult_st !='') && (hero_c2a_mult_st !='rounded-capsule') >
+                        <span class="btn-brand">
+                            <i class="<cms:show hero_c2a_icon_fa />"> </i>
+                        </span>
+                    </cms:if>
+                    <cms:show hero_c2a_mult_txt />
+                </a>
+            </cms:show_repeatable>
+        <cms:else_if hero_c2a_opt='1' />
+            <a class="btn <cms:show hero_c2a_st /> btn<cms:show hero_c2a_clr_out_chk />-<cms:show hero_c2a_clr />  btn<cms:show hero_c2a_sz /> w-<cms:show hero_c2a_wd /> mt-4" type="button" href="<cms:show c2a_lnk />">
+                <cms:if (hero_c2a_st !='') && (hero_c2a_st !='rounded-capsule') >
+                    <span class="btn-brand">
+                        <i class="<cms:show hero_c2a_icon_fa />"> </i>
+                    </span>
+                </cms:if>
+                <cms:show hero_c2a_txt />
+            </a>
+        </cms:if>
+    </cms:if>
+<cms:if hero_c2a_social >
+    <cms:embed 'pb_mods/hero/theme/hero_social.html' />
+</cms:if>

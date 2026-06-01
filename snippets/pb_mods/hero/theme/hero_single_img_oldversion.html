@@ -1,0 +1,14 @@
+<cms:embed 'pb_mods/hero/theme/hero_custom_settings.html' />
+<section class="bg-<cms:show bg_clr /> p-0 has-parallax">
+    <div class="bg-holder overlay overlay-<cms:show ovrly_clr />" style="background-image:url(<cms:show hero_img />)" alt="<cms:show hero_img_alt />)"; data-rellax-speed="<cms:show hero_bg_scrl_spd />" data-parallax="data-parallax">
+    </div>
+    <cms:embed 'pb_mods/hero/theme/hero_container_single.html' />
+</section>
+<cms:if (k_user_access_level ge '7') && ("<cms:get_session 'inline_edit_on' />")  > 
+    <div>
+        <cms:popup_edit 'hero_form_gen_ht_row|hero_form_gen_ht_msg|hero_txtblk_gen_row|hero_txtblk_gen_msg|hero_vht|hero_txtbx_sz_opt|hero_txtbx_cstm_sz_msg|hero_txtbx_cstm_sz_rpt' width='1050' height='1200' link_text='<button class="btn btn btn-success me-1 mb-1 fs--1" type="button">Edit Hero Height and Text Block Width</button>' />  
+        <cms:popup_edit 'hero_txtblk_opt_row|hero_txtblk_opt_msg|hero_txtblk_blk_opt|hero_txtblk_form_opt|hero_txtblk_img|hero_txtbx_txt_rpt' width='1050' height='1200' link_text='<button class="btn btn btn-warning me-1 mb-1 fs--1" type="button">Edit Text Block Contents</button>' />
+  
+        <cms:popup_edit '*' width='1050' height='1200' link_text='<button class="btn btn btn-primary me-1 mb-1 fs--1" type="button">Edit Hero Tile Section</button>' />   
+    </div>
+</cms:if>

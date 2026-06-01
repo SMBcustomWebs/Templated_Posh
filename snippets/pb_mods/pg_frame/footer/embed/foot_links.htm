@@ -1,0 +1,81 @@
+<cms:editable type='group' name='site_ftr_lnk_gen_stng_grp' label='2-Column with Logo Footer Settings'  order='20'>
+    <cms:editable type='message' name='site_ftr_lnk_gen_stng_msg' order='2'>
+        <h2>Site Footer</h2>
+        <h4></h4>
+        <p></p>
+    </cms:editable>
+    <cms:editable type='row' name='site_ftr_lnk_gen_set_row' order='5'>
+        <cms:editable type='dropdown' name='site_ftr_lnk_pad_y' label='Top and Bottom Padding' desc='inside cushion from the Y edges'
+            opt_values='2|0|3|4'
+            class='col-md-4 col-sm-6'
+            order='6'
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_bg_clr_opt' label='Footer Background Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            opt_selected='dark'
+            class='col-md-4 col-sm-6'
+            order='7'
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_clr_opt' label='Footer Text Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            opt_selected='light'
+            class='col-md-4 col-sm-6'
+            order='12'
+        />
+    </cms:editable>    
+    <cms:editable type='row' name='site_ftr_lnk_frmt_row' order='10'>
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_sz' label='Text Size (for more control over size)' 
+            opt_values='dropdowns/text-size.htm'
+            dynamic='opt_values'
+            opt_selected='9'
+            class='col-md-4 col-sm-6'
+            order='16'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_fnt_wt' label='Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='18'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_ltr_spc' label='Letter Spacing' 
+            opt_values='dropdowns/hdr_ltr-spc.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='20'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_fnt_st' label='Font Style' 
+            opt_values='dropdowns/font-style.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='22'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_lnk_txt_font' label='Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='24'  
+        />
+    </cms:editable>
+    <cms:repeatable name='site_ftr_lnk_lnks_rpt' label='Footer Site Links' order='30' >
+        <cms:editable type='text' name='site_ftr_lnk_cstm_pg' label='Link text'  desc='what the link says'
+            order='2' 
+        />
+        <cms:editable type='dropdown' name='site_ftr_pg_lnks_lnk_opt' label='Link to...' 
+            opt_values='dropdowns/links.htm'
+            dynamic='opt_values'
+            order='4'  
+        />
+        <cms:func _into='site_ftr_lnk_lnks_lnk_cstm_chc' site_ftr_pg_lnks_lnk_opt=''>
+            <cms:if site_ftr_pg_lnks_lnk_opt='custom'>
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+        <cms:editable type='text' name='site_ftr_lnk_cstm_lnk' label='Custom Link'  desc='enter full url' not_active=site_ftr_lnk_lnks_lnk_cstm_chc
+            order='6' 
+        />
+    </cms:repeatable>
+</cms:editable>

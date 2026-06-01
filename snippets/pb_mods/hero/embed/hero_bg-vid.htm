@@ -1,0 +1,63 @@
+<cms:editable type='group' name='hero_bg_vid_grp' label='Video Header Options'  order='203'>
+    <cms:editable type='message' name='hero_bg_vid_msg' order='204'>
+        <h2>Options for the Video Background</h2>
+        <h4>Upload or get the Video ID from YouTube</h4>
+        <p>IMPORTANT: For streaming YouTube, only the video ID is needed. This can be found in both the url or the share link.</p>
+    </cms:editable>
+    <cms:editable type='row' name='hero_bg_vid_row'  order='205'>
+        <cms:editable type='dropdown' name='hero_bg_vid_src_opt' label='Upload or Stream' 
+                opt_values='Upload=0|You Tube=1'
+                class='col-md-4'
+                order='210'
+            />
+            <cms:func _into='hero_bg_vid_lcl_chc' hero_bg_vid_src_opt=''>
+                <cms:if hero_bg_vid_src_opt='0'>
+                    show
+                    <cms:else />
+                    hide
+                </cms:if>
+            </cms:func>
+            <cms:func _into='hero_bg_vid_ytb_chc' hero_bg_vid_src_opt=''>
+                <cms:if hero_bg_vid_src_opt='1'>
+                    show
+                    <cms:else />
+                    hide
+                </cms:if>
+            </cms:func> 
+    </cms:editable>
+    <cms:editable type='row' name='hero_bg_vid_stm_row'             not_active=hero_bg_vid_ytb_chc  order='210'>
+        <cms:editable type="text" name="hero_bg_ytb_id" label="You Tube Video ID" desc='video ID only'
+            width="275"
+            class='col-md-4'
+            order="211"
+        />
+        <cms:editable type="text" name="hero_bg_ytb_str" label="Time Point To Start Stream Loop"  desc="in seconds only"
+            maxlength='6'
+            width="30"
+            class='col-md-4'
+            order="212"
+        >5</cms:editable>
+        <cms:editable type="text" name="hero_bg_ytb_stp" label="Time Point To Stop Stream Loop"  desc="in seconds only"
+            maxlength='6'
+            width="30"
+            class='col-md-4'
+            order="213"
+        >20</cms:editable>
+    </cms:editable>
+    <cms:editable type='row' name='hero_bg_vid_lcl_row' not_active=hero_bg_vid_lcl_chc order='225'>
+            <cms:editable type="file" name="hero_bg_vid_upl_vid_mp4" label="mp4"
+                width='30' 
+                order='228'  
+            />
+            <cms:editable type="file" name="hero_bg_vid_upl_vid_webm" label="webm" 
+                width='30'
+    
+                order='229'
+            />
+            <cms:editable type="file" name="hero_bg_vid_upl_vid_ogv" label="ogv" 
+                width='30'
+      
+                order='230'
+            />
+    </cms:editable>
+</cms:editable>

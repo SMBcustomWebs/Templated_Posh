@@ -1,0 +1,196 @@
+<cms:func _into='hero_c2a_chc' hero_c2a_opt=''>
+    <cms:if hero_c2a_opt ge '1'>
+        show
+        <cms:else />
+        hide
+    </cms:if>
+</cms:func>
+<cms:func _into='hero_c2a_sing' hero_c2a_opt=''>
+    <cms:if hero_c2a_opt='1'>
+        show
+        <cms:else />
+        hide
+    </cms:if>
+</cms:func>
+<cms:func _into='hero_c2a_mult' hero_c2a_opt=''>
+    <cms:if hero_c2a_opt='2'>
+        show
+        <cms:else />
+        hide
+    </cms:if>
+</cms:func>
+<cms:editable type='group' name='hero_c2a_grp' label='Hero Link Button Options' not_active=hero_c2a_chc order='311'>
+    <cms:editable type='message' name='hero_c2a_opt_msg' order='312'>
+        <h2>The following will set the Link Button Options</h2>
+        <h4></h4>
+        <p></p>
+    </cms:editable>
+    
+    <cms:editable type='row' name='hero_c2a_opt_row' not_active=hero_c2a_sing order='314'>
+        <cms:editable type='text' name='hero_c2a_txt' label='What the button says'
+            maxlength='60'
+            width='275'
+            class='col-md-3'
+            order='315' 
+        />
+        <cms:editable type='dropdown' name='hero_c2a_sz' label='Button Size' 
+            opt_values='dropdowns/button-size.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='316'  
+        />
+        <cms:editable type='dropdown' name='hero_c2a_wd' label='Button Width' desc='percentage of text block'
+            opt_values='dropdowns/button-width.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='317'
+        />
+        <cms:editable type='dropdown' name='hero_c2a_st' label='Button Style' desc=''
+            opt_values='dropdowns/button-style.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='318'
+        />
+        <cms:func _into='hero_c2a_icon_fa_chc' hero_c2a_st=''>  
+            <cms:if (hero_c2a_st !='') && (hero_c2a_st !='rounded-capsule') >
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+        <cms:editable type='message' name='hero_c2a_icon_msg' not_active=hero_c2a_icon_fa_chc order='320'>
+            <h3>Font Awesome Icons v6</h3>
+            <h4>enter the full code - ex: fab fa-gitlab</h4>
+            <p>see all options at here <a href="https://fontawesome.com/v6/search" target="_bland">https://fontawesome.com/v6/search</a></p>
+        </cms:editable>
+        <cms:editable type='text' name='hero_c2a_icon_fa' label='Button Icon' desc=''
+            not_active=hero_c2a_icon_fa_chc
+            class='col-md-3'
+            order='321'
+        />
+    </cms:editable> 
+
+    <cms:editable type='row' name='hero_c2a_txt_row' not_active=hero_c2a_sing order='324'>
+        <cms:editable type='dropdown' name='hero_c2a_clr' label='Button Color' 
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-md-4'
+            order='325'  
+        />
+        <cms:editable type='dropdown' name='hero_c2a_clr_out_chk' label='Solid Color or Outline' desc=''
+            opt_values='Solid= |Outline= -outline'
+            class='col-md-4'
+            order='326'
+        />
+        <cms:editable type='dropdown' name='hero_c2a_lnk' label='Button Link' 
+            opt_values='dropdowns/links.htm'
+            dynamic='opt_values'
+            class='col-md-4'
+            order='328'  
+        />
+        <cms:func _into='hero_c2a_cstm' hero_c2a_lnk=''>
+            <cms:if hero_c2a_lnk='custom'>
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+    </cms:editable>
+    <cms:editable type='row' name='hero_c2a_cust_row' not_active=hero_c2a_sing order='330'>
+        <cms:editable type='text' name='hero_c2a_cst_lnk' label='Custom Button Link'  desc='enter full url' not_active=hero_c2a_cstm
+            class='col-md-4'
+            order='335' 
+        />
+    </cms:editable>
+    <cms:editable type='row' name='hero_c2a_rpt_row' not_active=hero_c2a_mult  order='340'>
+        <cms:repeatable name='hero_mult_c2a_rpt' label='Multiple Button Options' stacked_layout='1' order='341'>
+            <cms:editable type='text' name='hero_c2a_mult_txt' label='Call To Action Button Text'
+                maxlength='60'
+                width='275'
+                class='col-md-4'
+                order='342' 
+            />
+            <cms:editable type='dropdown' name='hero_c2a_mult_sz' label='Button Size' 
+                opt_values='dropdowns/button-size.htm'
+                dynamic='opt_values'
+                class='col-md-3'
+                order='343'  
+            />
+            <cms:editable type='dropdown' name='hero_c2a_mult_wd' label='Button Width' desc='percentage of text block'
+                opt_values='dropdowns/button-width.htm'
+                dynamic='opt_values'
+                class='col-md-3'
+                order='344'
+            />
+            <cms:editable type='dropdown' name='hero_c2a_mult_st' label='Button Style' desc=''
+                opt_values='dropdowns/button-style.htm'
+                dynamic='opt_values'
+                class='col-md-3'
+                order='345'
+            />
+            <cms:func _into='hero_c2a_mult_icon_fa_chc' hero_c2a_st=''>  
+                <cms:if (hero_c2a_st !='') && (hero_c2a_st !='rounded-capsule') >
+                    show
+                <cms:else />
+                    hide
+                </cms:if>
+            </cms:func>
+            <cms:editable type='message' name='hero_c2a_mult_icon_msg' order='346'>
+                <h3>Font Awesome Icons v6</h3>
+                <h4>enter the full code - ex: fab fa-gitlab</h4>
+                <p><a href="https://fontawesome.com/v6/search" target="_bland">https://fontawesome.com/v6/search</a></p>
+            </cms:editable>
+            <cms:editable type='text' name='hero_c2a_mult_icon_fa' label='Button Icon' desc=''
+                not_active=hero_c2a_mult_icon_fa_chc
+                class='col-md-3'
+                order='347'
+            />
+            <cms:editable type='dropdown' name='hero_c2a_mult_clr' label='Button Color' 
+                opt_values='dropdowns/solid-colors.htm'
+                dynamic='opt_values'
+                order='348'  
+            />
+            <cms:editable type='dropdown' name='hero_c2a_mult_clr_out_chk' label='Solid Color or Outline' desc=''
+                opt_values='Solid= |Outline= -outline'
+                order='350'
+            />
+            
+            
+            <cms:editable type='dropdown' name='hero_c2a_mult_lnk' label='Button Link' 
+                opt_values='dropdowns/links.htm'
+                dynamic='opt_values'
+                order='352'  
+            />
+            <cms:func _into='hero_c2a_mult_cstm' hero_c2a_mult_lnk=''>
+                <cms:if hero_c2a_mult_lnk='custom'>
+                    show
+                <cms:else />
+                    hide
+                </cms:if>
+            </cms:func>
+            <cms:editable type='text' name='hero_c2a_mult_cst_lnk' label='Custom Button Link'  desc='enter full url' not_active=hero_c2a_mult_cstm
+                order='356' 
+            />
+        </cms:repeatable>
+        <cms:editable type='dropdown' name='hero_c2a_mult_pdg' label='space between buttons' desc='space between buttons or new line for each'
+            opt_values='2|4|6|New Line=1'
+            not_active=hero_c2a_mult_indv_chc
+            order='358'
+        />
+    </cms:editable>
+    <cms:editable type='row' name='hero_c2a_mult_grp_row' not_active=hero_c2a_mult  order='360'>
+        text blocking can only be 300 - 374
+  
+        <cms:editable type='dropdown' name='hero_c2a_mult_grp_gap' label='space between buttons' desc='space between buttons'
+            opt_values='1|2|3|4|5'
+            class='col-md-3'
+            order='362'
+        />
+        <cms:editable type='dropdown' name='hero_c2a_mult_grp_halg' label='Horizontal Alignment' desc=''
+            opt_values='dropdowns/h-align.htm'
+            dynamic='opt_values'
+            class='col-md-3'
+            order='363'
+        />
+    </cms:editable>
+</cms:editable>

@@ -1,0 +1,233 @@
+ <cms:editable type="group" name="thnbr_scal_gen_grp" label="General Settings" order="30" >  
+    <cms:editable type='message' name='thnbr_scal_init_cstm_msg' order='2'>
+        <h2>General settings for an accent bar that shows 1 Focal Link, Social and Call-To-Action button</h2>
+        <h4>Socials are set up in Global Settings</h4>
+        <p></p>
+    </cms:editable>
+    
+     <cms:editable type='row' name='thnbr_scal_gen_ht_row' order='5'>
+         <cms:editable type='dropdown' name='thnbr_scal_py' label='Height' desc=''
+            opt_values='thin=2|medium=3|thick=4'
+            class='col-sm-3'
+            order='2'
+        />
+        <cms:editable type='checkbox' name='thnbr_scal_c2a_opt' label='No Link Button' desc=''
+            opt_values='Remove Call-to-Action Button=1'
+            dynamic='opt_values'
+            class='col-sm-3'
+            order='4'
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_dspr' label='Screen Size Visibility' desc=''
+            opt_values='Disappear on Device=d-none d-lg-block|Disappear below Medium Screen=d-none d-md-block|Stay Visible= '
+            opt_selected='d-none d-lg-block'
+            class='col-sm-3'
+            order='6'
+        />
+    </cms:editable>
+    <cms:editable type='row' name='thnbr_scal_clr_row' order='33'>
+        <cms:editable type='message' name='thnbr_scal_bg_clr_msg' order='2'>
+            <br><hr><br>
+            <h2>Choose the colors</h2>
+            <h4></h4>
+            <p></p>
+        </cms:editable>
+        <cms:editable type='dropdown' name='thnbr_scal_bg_clr_opt' label='Bar Color' desc='background'
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-sm-4'
+            order='4'
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_txt_clr' label='Text Color' 
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            opt_selected='600'
+            class='col-sm-4'
+            order='6'  
+        />
+     </cms:editable>
+</cms:editable>
+<cms:editable type="group" name="thnbr_scal_txt_grp" label="Single Linked Text" order="36" >  
+    <cms:editable type='message' name='thnbr_scal_txt_cstm_msg' order='2'>
+        <h2>Single Focus Link</h2>
+        <h4>A link to stand out. Can be internal or exteral</h4>
+    </cms:editable>
+    <cms:editable type='row' name='thnbr_scal_txt_row' order='5'>
+
+        <cms:editable type='text' name='thnbr_scal_txt_txt' label='Linked Text' 
+            width='375'
+            class='col-sm-4'
+            order='2'  
+        />
+         <cms:editable type='dropdown' name='thnbr_scal_txt_lnk' label='Link' 
+            opt_values='dropdowns/links.htm'
+            dynamic='opt_values'
+            class='col-md-4'
+            order='4'  
+        />
+        <cms:func _into='thnbr_scal_txt_lnk_cstm' thnbr_scal_txt_lnk=''>
+            <cms:if thnbr_scal_txt_lnk='custom'>
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+        <cms:editable type='text' name='thnbr_scal_txt_lnk_cst' label='Custom Button Link'  desc='enter full url' not_active=thnbr_scal_txt_lnk_cstm
+            class='col-md-4'
+            order='6' 
+        />
+    </cms:editable>
+    <cms:editable type='row' name='thnbr_scal_c2a_cust_row'  order='10'>
+        <cms:editable type='dropdown' name='thnbr_scal_txt_sz' label='Text Size' 
+            opt_values='dropdowns/text-size.htm'
+            dynamic='opt_values'
+            class='col-sm-4'
+            order='2'  
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_txt_fnt_wt' label='Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            class='col-sm-4'
+            order='4'  
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_txt_font' label='Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            class='col-sm-4'
+            order='6'  
+        />
+    </cms:editable>
+</cms:editable>
+<cms:func _into='thnbr_scal_c2a_chc' thnbr_scal_c2a_opt=''>  
+    <cms:if thnbr_scal_c2a_opt='1' >
+        hide
+    <cms:else />
+        show
+    </cms:if>
+</cms:func>
+<cms:editable type="group" name="thnbr_scal_c2a_grp" label="Call To Action Button" not_active=thnbr_scal_c2a_chc order="38" >
+    <cms:editable type='row' name='thnbr_scal_c2a_opt_row'  order='5'>
+        <cms:editable type='text' name='thnbr_scal_c2a_txt' label='Button Text'
+            maxlength='60'
+            width='275'
+            class='col-md-4 col-sm-6'
+            order='2' 
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_clr' label='Button Color' 
+            opt_values='dropdowns/btn-colors.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='2'  
+        />
+        <cms:func _into='thnbr_scal_c2a_clr_lnk' thnbr_scal_c2a_clr=''>  
+            <cms:if thnbr_scal_c2a_clr='link' >
+                show
+            <cms:else />
+                hide
+            </cms:if>
+        </cms:func>
+        <cms:func _into='thnbr_scal_c2a_btn_clr_chc' thnbr_scal_c2a_clr=''>  
+            <cms:if thnbr_scal_c2a_clr='link' >
+                hide
+            <cms:else />
+                show
+            </cms:if>
+        </cms:func>
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_lnk_clr' not_active=thnbr_scal_c2a_clr_lnk label='Link Color' 
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='3'  
+        />
+        
+    </cms:editable>
+    <cms:editable type='row' name='thnbr_scal_c2a_frm_row' not_active=thnbr_scal_c2a_btn_clr_chc order='10'>
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_sz' label='Button Size' 
+            opt_values='dropdowns/button-size.htm'
+            dynamic='opt_values'
+            opt_selected='-sm'
+            class='col-md-4 col-sm-6'
+            order='4'  
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_st' label='Button Style' desc=''
+            opt_values='dropdowns/button-style.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='6'
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_clr_out_chk' label='Solid Color or Outline' desc=''
+            opt_values='Solid= |Outline= -outline'
+            class='col-md-4 col-sm-6'
+            order='4'
+        />
+        
+    </cms:editable>
+    
+    <cms:func _into='thnbr_scal_c2a_icon_fa_chc' thnbr_scal_c2a_st=''>  
+        <cms:if (thnbr_scal_c2a_st !='') && (thnbr_scal_c2a_st !='rounded-capsule') >
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='row' name='thnbr_scal_c2a_fa_row' not_active=thnbr_scal_c2a_btn_clr_chc order='15'>
+        <cms:editable type='message' name='thnbr_scal_c2a_icon_msg' not_active=thnbr_scal_c2a_icon_fa_chc class='col-sm-12'  order='5'>
+            <h3>Font Awesome Icons v6. Enter the full code.  EX: fab fa-gitlab</h3>
+            <h4>See all options <a href="https://fontawesome.com/v6/search" target="_bland">here at https://fontawesome.com/v6/search</a> </h4>
+            <p></p>
+        </cms:editable>
+        <cms:editable type='text' name='thnbr_scal_c2a_icon_fa' label='Enter full Font Awesome Icon' desc='EX: fa fa-heart'
+            width='275'
+            not_active=thnbr_scal_c2a_icon_fa_chc
+            class='col-sm-12'
+            order='6'
+        />
+    </cms:editable>
+    
+    <cms:editable type='row' name='thnbr_scal_c2a_lnk_row'  order='20'>
+        <cms:editable type='dropdown' name='thnbr_scal_c2a_lnk' label='Button Link' 
+            opt_values='dropdowns/links.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='2'  
+        />
+    </cms:editable>
+    <cms:func _into='thnbr_scal_c2a_cstm' thnbr_scal_c2a_lnk=''>
+        <cms:if thnbr_scal_c2a_lnk='custom'>
+            show
+        <cms:else />
+            hide
+        </cms:if>
+    </cms:func>
+    <cms:editable type='row' name='thnbr_scal_c2a_clk_row' not_active=thnbr_scal_c2a_cstm order='25'>
+        <cms:editable type='message' name='thnbr_scal_c2a_cust_lnk_msg' class='col-sm-12' order='5'>
+            <h2>Enter the full url for cutsom link.</h2>
+            <h4>Will open in a seperate tab</h4>
+            <p></p>
+        </cms:editable>
+        <cms:editable type='text' name='thnbr_scal_c2a_cst_lnk' label='Custom Button Link'  desc='enter full url' 
+            class='col-sm-12'
+            order='6' 
+        />
+    </cms:editable>
+</cms:editable>
+<cms:editable type="group" name="thnbr_scal_scl_grp" label="Social Icons Format"  order="39" >
+    <cms:editable type='row' name='thnbr_scal_scl_row'  order='5'>
+        <cms:editable type='message' name='thnbr_scal_scl_msg' class='col-sm-12' order='2'>
+            <h2>Options for Social Icons</h2>
+            <h4></h4>
+            <p></p>
+        </cms:editable>
+         <cms:editable type='dropdown' name='thnbr_scal_scl_px' label='Space Between Icons' desc=''
+            opt_values='default=2|close=1|space=3|wide=4'
+            opt_selected='2'
+            class='col-sm-3'
+            order='4'
+        />
+        <cms:editable type='dropdown' name='thnbr_scal_scl_sz' label='Social Icons Size' 
+            opt_values='dropdowns/fa-size.htm'
+            dynamic='opt_values'
+            class='col-sm-3'
+            order='6'  
+        />
+    </cms:editable>
+</cms:editable>

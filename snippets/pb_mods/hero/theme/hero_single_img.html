@@ -1,0 +1,40 @@
+<cms:embed 'pb_mods/hero/theme/hero_custom_settings.html' />
+<section class="bg-<cms:show hero_bg_clr_opt /> p-0 has-parallax">
+    <div class="bg-holder overlay overlay-<cms:show hero_ovrly_clr_opt />" style="background-image:url(<cms:show hero_img />)" alt="<cms:show hero_img_alt />)"; data-rellax-speed="<cms:show hero_bg_scrl_spd />" data-parallax="data-parallax">
+    </div>
+    <cms:embed 'pb_mods/hero/theme/hero_container_single.html' />
+    <cms:if (k_user_access_level ge '7') && ("<cms:get_session 'inline_edit_on' />")  > 
+        <div class="btn-group" role="group">
+            <cms:popup_edit
+                'hero_frmt_gen_grp|hero_frmt_gen_ht_row|hero_frmt_gen_ht_msg|hero_vht|hero_py_ht|hero_txtblk_gen_row|hero_txtblk_gen_msg|hero_txtbx_sz_opt|hero_txtbx_cstm_sz_grp|hero_txtbx_cstm_sz_msg|hero_txtbx_cstm_sz_rpt|hero_txtbx_valg|hero_txtbx_halg' width='1050' height='1200' link_text='<button class="btn btn-sm btn-success me-1 mb-1 fs--1" type="button">Edit Hero Height and Text Block Alignment</button>' 
+            />
+            <cms:popup_edit
+                'hero_frmt_gen_grp|hero_txtblk_opt_row|hero_txtblk_opt_msg|hero_txtblk_opt_bg_msg|hero_txtblk_bg_pd|hero_txtbx_bg_opt|hero_txtbx_bg_grp|hero_txtbx_bg_row|hero_txtbx_bg_clr_msg|hero_txtblk_bg_clr|hero_txtblk_bg_brd_siz|hero_txtblk_bg_brd_sty|hero_txtblk_bg_brd_clr|hero_txtblk_brd_spc' link_text='<button class="btn btn-sm btn-warning me-1 mb-1 fs--1" type="button">Edit Text Block Interior Formatting</button>'
+            />
+            <cms:popup_edit 
+                'hero_frmt_gen_grp|hero_txtblk_opt_row|hero_txtblk_innr_opt_msg|hero_txtblk_blk_opt|hero_txtblk_form_opt|hero_txtblk_img_grp|hero_txtblk_img|hero_txtbx_txt_rpt' width='1050' height='1200' link_text='<button class="btn btn-sm btn-primary me-1 mb-1 fs--1" type="button">Edit Hero Text Block Contents - Information</button>' 
+            />
+            <cms:popup_edit 
+                'hero_frmt_gen_grp|hero_txtblk_opt_row|hero_c2a_opt|hero_c2a_opt_msg|hero_c2a_opt_row|hero_c2a_txt|hero_c2a_sz|hero_c2a_wd|hero_c2a_st|hero_c2a_icon_msg|hero_c2a_icon_fa|hero_c2a_txt_row|hero_c2a_clr|hero_c2a_clr_out_chk|hero_c2a_lnk|hero_c2a_cust_row|hero_c2a_cst_lnk|hero_c2a_rpt_row|hero_mult_c2a_rpt|hero_c2a_mult_pdg|hero_c2a_mult_grp_row|hero_c2a_mult_grp_gap|hero_c2a_mult_grp_halg' width='1050' height='1200' link_text='<button class="btn btn-sm btn-white me-1 mb-1 fs--1" type="button">Edit Hero Call-To-Action Link Button</button>' 
+            />
+            <cms:popup_edit
+                'hero_frmt_gen_grp|hero_frmt_gen_clr_row|hero_form_gen_clr_msg|hero_bg_clr_opt|hero_ovrly_clr_opt|hero_bg_clr_cstm_grp|hero_bg_clr_cstm_msg|hero_bg_clr_cstm_grdt_opt_row|hero_bg_clr_cstm_grdt_opt|hero_bg_clr_cstm_row|hero_bg_clr_cstm_one|hero_bg_clr_cstm_two|hero_bg_clr_cust_grad_split_opt|hero_bg_clr_cstm_grad_rvrs_opt|hero_ovrly_clr_cstm_grp|hero_ovrly_clr_cstm_msg|hero_ovrly_clr_cstm_grdt_opt_row|hero_ovrly_clr_grdt_opt|hero_ovrlys_cstm_row|hero_ovrly_clr_cstm_one|hero_ovrly_clr_cstm_two|hero_ovrly_cust_grad_split_opt|hero_bg_clr_cstm_grad_rvrs_opt|hero_bg_img_grp|hero_bg_img_row|hero_bg_img_msg|hero_img|hero_img_alt' width='1050' height='1200' link_text='<button class="btn btn-sm btn-secondary me-1 mb-1 fs--1" type="button">Edit Background Image, Colors, Overlay Colors</button>' 
+            />
+        </div>
+        <div class="btn-group" role="group">
+            
+            <cms:popup_edit 
+                'hero_gen_xt_row|hero_gen_xtr_add_msg|hero_mdl_add_opt|hero_gen_xt_msg|hero_add_vid_btn_clr|hero_add_vid_btn_mgn|hero_mdl_img_row|hero_mdl_img_rpt|hero_mdl_vid_row|hero_mdl_vid_msg|hero_mdl_vid_src_opt|hero_mdl_ytb_id|hero_mdl_vim_id|hero_mdl_vid_upl_vid_mp4'link_text='<button class="btn btn-sm btn-light me-1 mb-1 fs--1" type="button">Edit Extra Gallery or Video</button>'
+            />
+            <cms:popup_edit 
+                'hero_gen_xtr_scrl_msg|hero_bg_scrl_spd'link_text='<button class="btn btn-sm btn-dark me-1 mb-1 fs--1" type="button">Edit Scrolling Effect</button>'
+            />
+        </div>
+    </cms:if>
+</section>
+<cms:if (k_user_access_level ge '7') && ("<cms:get_session 'inline_edit_on' />")  > 
+    <div class='row'>
+        <cms:popup_edit 
+        '*' width='1050' height='1200' link_text='<button class="btn btn btn-danger me-1 mb-1 fs--1" type="button">All Hero Settings</button>' />
+    </div>
+</cms:if>  

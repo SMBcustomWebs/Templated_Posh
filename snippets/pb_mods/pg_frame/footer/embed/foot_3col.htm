@@ -1,0 +1,69 @@
+<cms:editable type='group' name='site_ftr_3ol_gen_stng_grp' label='3 Column with Logo Footer Settings'  order='30'>
+    <cms:editable type='row' name='site_ftr_3col_gen_set_row' order='5'>
+        <cms:editable type='image' name='site_ftr_3col_site_logo' label='Footer Logo' desc=''
+            width='300'
+            height='300'
+            enforce_max='1'
+            show_preview='1'
+            preview_width='75'
+             class='col-md-6'
+            order='2'
+        />
+        
+        <cms:editable type='dropdown' name='site_ftr_3col_pad_y' label='Top and Bottom Padding' desc='inside cushion from the Y edges'
+            opt_values='2|0|3|4'
+            class='col-md-4 col-sm-6'
+            order='4'
+        />
+    </cms:editable>
+    <cms:editable type='row' name='site_ftr_3col_clr_row' order='10'>
+         <cms:editable type='dropdown' name='site_ftr_3col_bg_clr_opt' label='Footer Background Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            opt_selected='dark'
+            class='col-md-4 col-sm-6'
+            order='5'
+        />
+
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_clr_opt' label='Footer Text Color' desc=''
+            opt_values='dropdowns/solid-colors.htm'
+            dynamic='opt_values'
+            opt_selected='light'
+            class='col-md-4 col-sm-6'
+            order='6'
+        />
+    </cms:editable>
+    <cms:editable type='row' name='site_ftr_3col_frmt_row' order='15'>    
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_sz' label='Text Size (for more control over size)' 
+            opt_values='dropdowns/text-size.htm'
+            dynamic='opt_values'
+            opt_selected='9'
+            class='col-md-4 col-sm-6'
+            order='5422'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_fnt_wt' label='Font Weight' 
+            opt_values='dropdowns/font-weight.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='5423'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_ltr_spc' label='Letter Spacing' 
+            opt_values='dropdowns/hdr_ltr-spc.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='5424'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_fnt_st' label='Font Style' 
+            opt_values='dropdowns/font-style.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='5425'  
+        />
+        <cms:editable type='dropdown' name='site_ftr_3col_txt_font' label='Font Family' 
+            opt_values='dropdowns/font-family.htm'
+            dynamic='opt_values'
+            class='col-md-4 col-sm-6'
+            order='5428'  
+        />
+    </cms:editable>
+</cms:editable>
