@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<cms:set ccs_thm="<cms:get_field 'ccs_gl_site_thm_opt' masterpage='globals.php' />" />
-
-<html lang="en" <cms:if ccs_thm>data-bs-theme="<cms:show ccs_thm />"</cms:if>><head>
+<cms:set ccs_thm="<cms:get_custom_field 'ccs_gl_site_thm_opt' masterpage='globals.php' />" />
+<html data-bs-theme="<cms:show ccs_thm />" lang="en-US" dir="ltr">
+	
     <!-- =======change when site goes live==============-->
     <meta name="robots" content="noindex, nofollow">
     <!-- ===============================================-->

@@ -5,7 +5,57 @@
 /* -------------------------------------------------------------------------- */
 /* Posh Button                                                                */
 /* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+/* 1. PRIMAVERA (SPRING) - Fresh greens, soft pinks, energetic and light      */
+/* ========================================================================== */
+[data-bs-theme="primavera"] {
+    --posh-primary: #FF8E9C;      /* Soft Coral Pink */
+    --posh-secondary: #85D3A9;    /* Spring Leaf Green */
+    --posh-tertiary: #A3D5FF;     /* Morning Sky Blue */
+    --posh-quaternary: #FFE8A1;   /* Pale Sunshine */
+    --posh-body-bg: #FCFCFA;      /* Ultra-light warm gray */
+    --posh-body-color: #2C3E50;   /* Deep slate for readability */
+    --posh-heading-color: #1A252F;
+}
 
+/* ========================================================================== */
+/* 2. ESTATE (SUMMER) - High contrast, vibrant, oceanic, and warm             */
+/* ========================================================================== */
+[data-bs-theme="estate"] {
+    --posh-primary: #FF9F1C;      /* Vibrant Sun Orange */
+    --posh-secondary: #2EC4B6;    /* Tropical Ocean Teal */
+    --posh-tertiary: #E71D36;     /* Bright Watermelon Red */
+    --posh-quaternary: #FFBF69;   /* Warm Sand */
+    --posh-body-bg: #FFFFFF;      /* Stark white for high contrast */
+    --posh-body-color: #011627;   /* Deepest Navy (near black) */
+    --posh-heading-color: #011627;
+}
+
+/* ========================================================================== */
+/* 3. AUTUNNO (AUTUMN) - Deep, rich, earthy, and sophisticated                */
+/* ========================================================================== */
+[data-bs-theme="autunno"] {
+    --posh-primary: #D95D39;      /* Burnt Maple Red */
+    --posh-secondary: #F0A202;    /* Golden Harvest Yellow */
+    --posh-tertiary: #826251;     /* Warm Bark Brown */
+    --posh-quaternary: #A89C94;   /* Foggy Gray */
+    --posh-body-bg: #F4F1ED;      /* Parchment off-white */
+    --posh-body-color: #3A1700;   /* Deep Espresso */
+    --posh-heading-color: #260F00;
+}
+
+/* ========================================================================== */
+/* 4. INVERNO (WINTER) - Crisp, icy, stark, and highly corporate              */
+/* ========================================================================== */
+[data-bs-theme="inverno"] {
+    --posh-primary: #3A86FF;      /* Frost Blue */
+    --posh-secondary: #8ECAE6;    /* Glacier Ice */
+    --posh-tertiary: #4A4E69;     /* Cold Steel Gray */
+    --posh-quaternary: #C1D3FE;   /* Pale Frost */
+    --posh-body-bg: #F8F9FA;      /* Cool Snow White */
+    --posh-body-color: #0B132B;   /* Deep Midnight Blue */
+    --posh-heading-color: #050A17;
+}
 <cms:if "<cms:gpc 'page' />" && "<cms:gpc 'post' />">
     <cms:pages masterpage="<cms:gpc 'page' />" id="<cms:gpc 'post' />" > 
         <cms:set bg_clr1="<cms:show bg_clr_cstm_one />" "global" />
