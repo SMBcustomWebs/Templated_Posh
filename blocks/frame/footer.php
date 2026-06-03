@@ -10,8 +10,8 @@
         <cms:tile name='st_ftr_3col_tl' label='Site Footer 3 column Logo | Links | Social' _pb_template='pg_frame/footer/theme/foot_3col' _pb_height='350'>
             <cms:embed 'pb_mods/pg_frame/footer/embed/foot_3col.htm' />
         </cms:tile>
-        <cms:tile name='st_ftr_scal_frm_tl' label='Site Footer 2 column with Form, social, app | 3-column Links' _pb_template='pg_frame/footer/theme/foot_2col _form-scal' _pb_height='350'>
-            <cms:embed 'pb_mods/pg_frame/footer/embed/foot_2col _form-scal.htm' />
+        <cms:tile name='st_ftr_scal_frm_tl' label='Site Footer 2 column with Form, social, app | 3-column Links' _pb_template='pg_frame/footer/theme/foot_2col_form-scal' _pb_height='350'>
+            <cms:embed 'pb_mods/pg_frame/footer/embed/foot_2col_form-scal.htm' />
         </cms:tile>
     </cms:mosaic>
 </cms:template>

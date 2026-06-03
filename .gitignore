@@ -1,15 +1,53 @@
-# https://git-scm.com/docs/gitignore
-# https://help.github.com/articles/ignoring-files
-# Example.gitignore files : https://github.com/github/gitignore
+# =========================================
+# 1. SECURITY (CRITICAL)
+# =========================================
+comm_admin/config.php
+
+# =========================================
+# 2. SERVER & LOGS
+# =========================================
+error_log
+*.log
+
+# =========================================
+# 3. CMS CACHE & UPLOADS
+# =========================================
+comm_admin/cache/
+comm_admin/uploads/
+comm_admin/upload/
+
+# =========================================
+# 4. TEMPLATE MEDIA
+# =========================================
+css/assets/
+assets/images/
+assets/logos/
+assets/videos/
+assets/media/
+# =========================================
+# 5. TEXT FILES IN ROOT
+# =========================================
+/*.txt
+
+# =========================================
+# 6. IDEs & EDITORS
+# =========================================
+# Dreamweaver
 _notes/
-/bower_components/
-/node_modules/
-/homes/
-/pages/
-/docs/
-/components/
-/assets/images/
-/assets/videos/
-/assets/logos/
-/comm_admin/uploads/
-notes.txt
+dwsync.xml
+
+# VS Code & JetBrains
+.vscode/
+.idea/
+
+# =========================================
+# 7. OS GENERATED JUNK
+# =========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================================
+# 8. NODE DEPENDENCIES
+# =========================================
+node_modules/

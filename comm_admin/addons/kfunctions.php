@@ -2,6 +2,7 @@
 if ( !defined('K_COUCH_DIR') ) die(); // cannot be loaded directly
 
 require_once( K_COUCH_DIR.'addons/cart/cart.php' );
+require_once( K_COUCH_DIR.'addons/csv/csv.php' );
 require_once( K_COUCH_DIR.'addons/inline/inline.php' );
 require_once( K_COUCH_DIR.'addons/extended/extended-folders.php' );
 //require_once( K_COUCH_DIR.'addons/extended/extended-comments.php' );
