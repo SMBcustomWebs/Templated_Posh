@@ -1,4 +1,4 @@
-<?php require_once( '../comm_admin/cms.php' ); ?>
+<?php require_once( '../ccs_dash/cms.php' ); ?>
     <cms:template title='Services Submenu Titles' parent='_donottouch_' clonable='1' icon='x' hidden='1' order='2300'  >
         <cms:editable type='message' name='sbm_hro_msg' order='2'>
             <h2>Page Topper</h2>

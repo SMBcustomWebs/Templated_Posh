@@ -1,4 +1,4 @@
-<?php require_once("comm_admin/cms.php"); ?>
+<?php require_once("ccs_dash/cms.php"); ?>
 <cms:template title='Tax Classes' clonable='1' hidden='0' parent='_global_' >
     <cms:editable
         name='tax_rate'

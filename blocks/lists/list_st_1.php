@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Catalog List Style 1' parent='_mod_lst_' icon='excerpt' clonable='0'  order='280' >
     <cms:mosaic name='list1_block_msc' label='Listing Page Style 1 - Medium Image Squares' body_class='_pb'>
         <cms:tile name='list1_cat_ins_tile' label='Portfolio Catalog - Title Inside' _pb_template='list_1/theme/list1_cat_ins' _pb_height='350'>

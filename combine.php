@@ -3,7 +3,7 @@
 $outputFile = 'master_codebase.txt';
 
 // Folders to ignore (we are ignoring 'assets' as requested, plus Couch core and images)
-$ignoreFolders = ['!original', 'comm_admin/uploads', 'xmples']; 
+$ignoreFolders = ['!original', 'ccs_dash/uploads', 'xmples']; 
 
 // Allowed file types to include
 $allowedExtensions = ['php', 'html', 'css', 'js', 'txt'];

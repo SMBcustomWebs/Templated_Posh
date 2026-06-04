@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Locations Dictionary" icon='map-marker' clonable='1' order="970" >
     
     <cms:editable type='message' name='tpl_msg' order='1' >

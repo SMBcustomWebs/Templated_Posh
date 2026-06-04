@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Stock Inventory:: Navigation' parent='_frame_' icon='cog' clonable='0'  order='200' >
     <cms:mosaic name='ccs_nav_msc' label='Site Navigation Menu' body_class='_pb'>
         

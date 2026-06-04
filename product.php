@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
     <cms:template title="Products" icon='tags' clonable='1' dynamic_folders='1' folder_masterpage='bmenu/product.php' icon='tags' order="1400"  >
         <cms:globals>
             <cms:editable type='message' name='tpl_msg' order='1' >

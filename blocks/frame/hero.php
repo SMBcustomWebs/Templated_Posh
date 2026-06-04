@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Stock Invetory:: Page Heros' parent='_frame_' icon='cog' clonable='0'  order='300' >
     <cms:mosaic name='hero_block_msc' label='Hero Block' body_class='_pb'>
         <cms:tile name='hero_single_img_tile' label='Hero - Single Image Background' _pb_template='hero/theme/hero_single_img' _pb_height='350'>

@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:content_type 'text/css' />
 <cms:template parent='_donottouch_' hidden='1' />
 

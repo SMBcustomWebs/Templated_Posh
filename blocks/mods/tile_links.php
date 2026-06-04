@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Tiles with Links' parent='_mod_lnk_' icon='cog' clonable='0'  order='740' >
     <cms:mosaic name='___pg_tile_link_msc' label='Tiles With Links' body_class='_pb'>
         <cms:tile name='___pg_tile_link_3_tl' label='3 Page Tiles with Link Buttons' _pb_template='tile_link/theme/tile_ttl_out_3' _pb_height='300'>

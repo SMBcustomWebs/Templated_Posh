@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Category Dictionary" icon='tags' clonable='1' order="960" >
     
     <cms:editable type='message' name='tpl_msg' order='1' >

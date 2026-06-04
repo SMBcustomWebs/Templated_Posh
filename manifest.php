@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title='App Manifest' hidden='1' parent='_donottouch_' />
 <cms:content_type 'application/json' />
 <cms:set site_favicon="<cms:get_field 'ccs_gl_site_favicon' masterpage='globals.php' />" />

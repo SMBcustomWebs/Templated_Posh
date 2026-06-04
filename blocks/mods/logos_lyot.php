@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Logos Layout' parent='_mod_gen_' icon='cog' clonable='0'  order='720' >
     <cms:mosaic name='___pg_lgos_msc' label='Logos Layout' body_class='_pb'>
         <cms:tile name='___pg_lgos_hirc_tl' label='Logos with hierarchy' _pb_template='logos_lyot/theme/logos_lyot' _pb_height='300'>

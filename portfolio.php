@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
     <cms:template title="Portfolio"  clonable='1' icon='book' order="1600" >
 
     </cms:template>

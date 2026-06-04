@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Directory Search Engine" icon='search' clonable='0' order="920" >
     
     <!-- Wrapping in globals to satisfy the tl_if_pb_emb.html renderer -->

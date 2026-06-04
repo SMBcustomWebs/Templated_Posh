@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
     <cms:template title="Contact" icon='phone' order="1900" >
     <cms:pagebuilder name='ccs_cntc_hro_pb' label='<h3>Page Topper</h3>' skip_custom_fields='1' order='10'>
         <cms:section label='Page Hero' name='ccs_abt_cat_hro_sect'  masterpage='blocks/frame/hero.php' mosaic='hero_block_msc' />

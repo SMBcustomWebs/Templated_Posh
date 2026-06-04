@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Homepage" parent='_site_' icon='home' order="90" >
     
     <cms:pagebuilder name='home_pb' label='Homepage PageBuilder' skip_custom_fields='1' order='-1'>

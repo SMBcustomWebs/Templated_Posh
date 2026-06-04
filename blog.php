@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Blog"  clonable='1' icon='copywriting' order="1500"  >
     
     <cms:pagebuilder name='blg_cntnt_pb' label='Blog Content Page' skip_custom_fields='1' order='110'>

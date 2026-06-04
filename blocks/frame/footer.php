@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Stock Inventory:: Site Footers' parent='_frame_' icon='cog' clonable='0'  order='400' >
     <cms:mosaic name='ccs_site_ftr_msc' label='Site Footer' body_class='_pb'>
         <cms:tile name='st_ftr_bsc_tl' label='Site Footer Basic' _pb_template='pg_frame/footer/theme/foot_bsc' _pb_height='90'>

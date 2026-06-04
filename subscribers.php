@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title='Subscribers' clonable='1' executable='0' order='900'>
     
     <cms:editable name='subscriber_email' type='text' hidden='1' />

@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Booking Engine" icon='calendar' clonable='0' order="900" >
     
     <cms:globals>

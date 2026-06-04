@@ -1,4 +1,4 @@
-<?php require_once( '../../comm_admin/cms.php' ); ?>
+<?php require_once( '../../ccs_dash/cms.php' ); ?>
 <cms:template title='Stock Inventory:: Utility Bar' parent='_frame_' icon='cog' clonable='0'  order='100' >
     
     <cms:mosaic name='ccs_utlbar_msc' label='Utility Information Bar' body_class='_pb'>

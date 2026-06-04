@@ -1,4 +1,4 @@
-<?php require_once( 'comm_admin/cms.php' ); ?>
+<?php require_once( 'ccs_dash/cms.php' ); ?>
 <cms:template title="Global Site Settings" parent='_global_'  icon='globe' hidden="0" order="90" >
 
     <cms:editable type='message' name='ccs_gl_site_gen_msg' order='2' >
